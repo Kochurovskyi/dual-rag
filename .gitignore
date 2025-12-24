@@ -87,6 +87,16 @@ htmlcov/
 # pyenv
 .python-version
 
+# Streamlit
+.streamlit/
+
+# Generated images (optional - uncomment if you don't want to track these)
+# graph.png
+# gui.png
+
+# Test output files
+graph_test_output.log
+
 # Archives (in other folder)
 *.zip
 *.tar.gz

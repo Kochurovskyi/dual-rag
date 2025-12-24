@@ -228,12 +228,37 @@ def generate(state: GraphState) -> GraphState:
         logger.info(f"[MODE] Generating from graded Tavily web search results ({len(graded_web_search_results)} relevant results)")
         doc_contents = [doc.page_content for doc in graded_web_search_results]
         answer = generate_answer(question, doc_contents)
-        state["generation"] = answer
-        state["generation_sources"] = [
-            doc.metadata.get("url", "unknown") for doc in graded_web_search_results
-        ]
-        state["metadata"] = state.get("metadata", {})
-        state["metadata"]["generation_source"] = "web_search"
+        
+        # Check if answer indicates documents don't contain the information
+        # If so, try using ungraded web search results as fallback
+        answer_lower = answer.lower()
+        if any(phrase in answer_lower for phrase in ["don't contain", "doesn't contain", "do not contain", "does not contain", "not contain information", "no information"]):
+            web_search_results = state.get("web_search_results", [])
+            if web_search_results and len(web_search_results) > len(graded_web_search_results):
+                logger.warning("[MODE] Graded web search results don't answer question, trying ungraded results as fallback")
+                logger.info(f"[MODE] Using {len(web_search_results)} ungraded web search results")
+                doc_contents = [doc.page_content for doc in web_search_results]
+                answer = generate_answer(question, doc_contents)
+                state["generation"] = answer
+                state["generation_sources"] = [
+                    doc.metadata.get("url", "unknown") for doc in web_search_results
+                ]
+                state["metadata"] = state.get("metadata", {})
+                state["metadata"]["generation_source"] = "web_search_fallback"
+            else:
+                state["generation"] = answer
+                state["generation_sources"] = [
+                    doc.metadata.get("url", "unknown") for doc in graded_web_search_results
+                ]
+                state["metadata"] = state.get("metadata", {})
+                state["metadata"]["generation_source"] = "web_search"
+        else:
+            state["generation"] = answer
+            state["generation_sources"] = [
+                doc.metadata.get("url", "unknown") for doc in graded_web_search_results
+            ]
+            state["metadata"] = state.get("metadata", {})
+            state["metadata"]["generation_source"] = "web_search"
     elif not graded_docs:
         logger.warning("[MODE] No documents available for generation")
         

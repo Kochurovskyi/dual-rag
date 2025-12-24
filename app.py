@@ -204,6 +204,7 @@ with st.sidebar:
         "What is LangGraph?",
         "How do I add persistence to a LangGraph agent?",
         "What's the difference between StateGraph and MessageGraph?",
+        "What are the latest updates to LangGraph in October 2025?",
         "How to handle errors in LangChain?",
         "What's the general price for pizza in NY?",
         "Explain LangGraph's checkpoint system",

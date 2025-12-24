@@ -192,7 +192,11 @@ For comprehensive data freshness documentation, update procedures, and watchdog 
 
 ```bash
 git clone https://github.com/Kochurovskyi/dual-rag.git
-cd asistant
+cd dual-rag
+
+# Install Git LFS to download pre-indexed data
+git lfs install
+git lfs pull
 ```
 
 ### Step 2: Create Virtual Environment
@@ -953,6 +957,42 @@ The agent can handle various types of questions about LangGraph and LangChain:
 
 ---
 
+## Docker Deployment
+
+The application can be deployed as a Docker container to AWS Elastic Beanstalk or any Docker-compatible platform.
+
+### Build and Push Docker Image
+
+```bash
+# Build image
+docker build -t kochurovskyi/dual-rag:latest .
+
+# Push to Docker Hub
+docker push kochurovskyi/dual-rag:latest
+
+# Or use helper script
+./build_and_push.sh  # Linux/Mac
+build_and_push.bat   # Windows
+```
+
+### AWS Elastic Beanstalk Deployment
+
+1. **Build and push image** (see above)
+2. **Create deployment package** with `Dockerrun.aws.json`
+3. **Deploy via EB Console** or EB CLI:
+   ```bash
+   eb init -p docker -r eu-central-1 dual-rag-app
+   eb create dual-rag-env
+   eb setenv GOOGLE_API_KEY=your_key AGENT_MODE=online TAVILY_API_KEY=your_key POSTGRES_HOST=your_host POSTGRES_PASSWORD=your_password
+   eb deploy
+   ```
+
+**Docker Image**: `kochurovskyi/dual-rag:latest`
+
+For detailed deployment instructions, see [`DEPLOYMENT.md`](DEPLOYMENT.md).
+
+---
+
 ## Support
 
-For issues, questions, or contributions, please [open an issue](repository-url/issues) or [create a pull request](repository-url/pulls).
+For issues, questions, or contributions, please [open an issue](https://github.com/Kochurovskyi/dual-rag/issues) or [create a pull request](https://github.com/Kochurovskyi/dual-rag/pulls).

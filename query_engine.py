@@ -20,13 +20,7 @@ from reranker import Reranker
 # Import embedding model based on configuration
 if USE_GOOGLE_EMBEDDINGS:
     from langchain_google_genai import GoogleGenerativeAIEmbeddings
-    # Load API key from .env
-    with open('.env', 'r') as f:
-        for line in f:
-            if 'GOOGLE_API_KEY' in line and not line.strip().startswith('#'):
-                api_key = line.split('=', 1)[1].strip().strip('"').strip("'")
-                os.environ['GOOGLE_API_KEY'] = api_key
-                break
+    # API key is already loaded by config.py via load_dotenv()
 else:
     from sentence_transformers import SentenceTransformer
 
@@ -83,6 +77,17 @@ class QueryEngine:
             
             # Initialize PGEngine
             engine = PGEngine.from_connection_string(url=connection_string)
+            
+            # Initialize table if it doesn't exist (vector size: 3072 for RETRIEVAL_DOCUMENT embeddings)
+            VECTOR_SIZE = 3072
+            try:
+                engine.init_vectorstore_table(table_name=POSTGRES_VECTOR_TABLE, vector_size=VECTOR_SIZE)
+                logger.info(f"[MODE] PostgreSQL table '{POSTGRES_VECTOR_TABLE}' initialized (vector_size={VECTOR_SIZE})")
+            except Exception as e:
+                if "already exists" in str(e).lower():
+                    logger.info(f"[MODE] PostgreSQL table '{POSTGRES_VECTOR_TABLE}' already exists, continuing...")
+                else:
+                    raise
             
             # Initialize embeddings (RETRIEVAL_DOCUMENT to match stored embeddings)
             # Note: PostgreSQL stores RETRIEVAL_DOCUMENT (3072 dims), so we must use the same for queries
@@ -190,14 +195,17 @@ class QueryEngine:
                     query=exp_query,
                     k=top_k * 3  # Get more results for deduplication and filtering
                 )
-                logger.debug(f"[MODE] PostgreSQL returned {len(docs_with_scores)} results")
+                logger.info(f"[MODE] PostgreSQL returned {len(docs_with_scores)} raw results (requested k={top_k * 3})")
                 
                 # Convert to ChromaDB-like format
+                filtered_count = 0
                 for doc, score in docs_with_scores:
                     # Convert distance to similarity (lower distance = higher similarity)
                     similarity = 1.0 - min(score, 1.0)  # Ensure similarity is between 0 and 1
                     
                     if similarity < min_score:
+                        filtered_count += 1
+                        logger.debug(f"[MODE] Filtered result: similarity={similarity:.4f} < min_score={min_score}, distance={score:.4f}")
                         continue
                     
                     # Extract metadata
@@ -206,6 +214,15 @@ class QueryEngine:
                     # Filter by source if specified
                     if source and metadata.get('source') != source:
                         continue
+                    
+                    # Generate ID from metadata if not present (PostgreSQL doesn't store ID in metadata)
+                    doc_id = metadata.get('id', '')
+                    if not doc_id:
+                        # Generate ID same way as ChromaDB: source:file_path:chunk_index
+                        doc_source = metadata.get('source', 'unknown')
+                        doc_file_path = metadata.get('file_path', '')
+                        doc_chunk_index = metadata.get('chunk_index', 0)
+                        doc_id = f"{doc_source}:{doc_file_path}:{doc_chunk_index}"
                     
                     result = {
                         'source': metadata.get('source', 'unknown'),
@@ -218,12 +235,20 @@ class QueryEngine:
                         'content': doc.page_content,
                         'score': similarity,
                         'distance': score,
-                        'id': metadata.get('id', ''),
+                        'id': doc_id,
                         'metadata': metadata
                     }
                     all_results.append(result)
+                    logger.debug(f"[MODE] Added result: source={result['source']}, similarity={similarity:.4f}, distance={score:.4f}")
+                
+                if filtered_count > 0:
+                    logger.info(f"[MODE] Filtered {filtered_count} results below min_score={min_score}")
+                added_count = len(docs_with_scores) - filtered_count
+                logger.info(f"[MODE] Added {added_count} results from this query")
             except Exception as e:
                 logger.error(f"Error querying PostgreSQL: {e}")
+                import traceback
+                logger.error(traceback.format_exc())
                 continue
         
         # Deduplicate by ID and content (same as ChromaDB)

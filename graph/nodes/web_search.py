@@ -46,11 +46,23 @@ def web_search(state: GraphState) -> GraphState:
         logger.info("[MODE] Calling Tavily API...")
         
         # Enhance query for better results
-        # Add "LangGraph" or "LangChain" context if not present
+        # Only add "LangGraph" or "LangChain" context if question is about general concepts
+        # Don't add if question already specifies a framework or is about general topics
         enhanced_query = question
-        if "langgraph" not in question.lower() and "langchain" not in question.lower():
+        question_lower = question.lower()
+        
+        # Don't enhance if question is about general topics (best practices, how to, what is, etc.)
+        # or if it already mentions a specific framework
+        general_topics = ["best practices", "how to", "what is", "what are", "explain", "guide"]
+        is_general_topic = any(topic in question_lower for topic in general_topics)
+        has_framework = "langgraph" in question_lower or "langchain" in question_lower or "langsmith" in question_lower
+        
+        # Only enhance if it's a specific technical question without framework context
+        if not has_framework and not is_general_topic:
             enhanced_query = f"LangGraph {question}"
             logger.info(f"[DEBUG] Enhanced query: '{enhanced_query}'")
+        else:
+            logger.info(f"[DEBUG] Using original query (no enhancement needed): '{enhanced_query}'")
         
         # Perform web search with improved parameters
         search_results = client.search(

@@ -23,7 +23,7 @@ MIN_CHUNK_SIZE = 100  # tokens (filter very small chunks)
 CHUNK_OVERLAP = 160   # tokens (20% overlap for context preservation)
 
 # Query configuration
-TOP_K_RESULTS = 8     # Default number of results to return
+TOP_K_RESULTS = 5     # Default number of results to return
 MIN_SCORE = 0.0        # Minimum similarity score threshold
 
 # Documentation sources
@@ -74,7 +74,7 @@ WEB_SEARCH_ENABLED = AGENT_MODE == "online"
 
 # LLM Configuration for Graph Chains
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY", "")  # Google API key for LLM
-LLM_MODEL = os.getenv("LLM_MODEL", "gemini-2.5-flash")  # Model for generation, grading, routing
+LLM_MODEL = os.getenv("LLM_MODEL", "gemini-2.5-flash-lite")  # Model for generation, grading, routing
 MAX_RETRIES = int(os.getenv("MAX_RETRIES", "5"))  # Maximum retry attempts for generation
 
 # Graph Configuration

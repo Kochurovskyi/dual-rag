@@ -19,9 +19,15 @@ def create_generation_chain():
         
 Use the provided context documents to answer the user's question. 
 - Provide a clear, concise answer based on the documents
-- If the documents don't contain enough information, say so
+- If the documents contain relevant information, extract and present it clearly
 - Include relevant code examples or explanations from the documents
 - Cite which document(s) you used for your answer
+- If the documents don't directly answer the question but contain related information, explain what they DO contain and how it relates
+
+IMPORTANT: If the documents don't contain enough information to answer the question, be helpful:
+- Explain what information the documents DO contain
+- Suggest what additional information would be needed
+- Don't just say "the documents don't contain information" - be constructive
 
 Format your response clearly and be helpful."""),
         ("human", """Context Documents:
@@ -29,7 +35,7 @@ Format your response clearly and be helpful."""),
 
 Question: {question}
 
-Answer the question based on the context documents above. If the documents don't contain enough information, say so.""")
+Answer the question based on the context documents above. If the documents don't directly answer the question, explain what they do contain and how it relates to the question.""")
     ])
     
     chain = prompt | llm | StrOutputParser()

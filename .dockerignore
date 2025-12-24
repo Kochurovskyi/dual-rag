@@ -87,3 +87,13 @@ utility_scripts/
 # Metadata archives
 metadata/archive/
 
+# Streamlit config (if not needed in container)
+.streamlit/
+
+# Generated images (optional)
+# graph.png
+# gui.png
+
+# Test output files
+graph_test_output.log
+test_*.py

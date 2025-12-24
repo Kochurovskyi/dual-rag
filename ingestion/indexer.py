@@ -20,13 +20,7 @@ from ingestion.download_docs import calculate_checksum
 # Import embedding model based on configuration
 if USE_GOOGLE_EMBEDDINGS:
     from langchain_google_genai import GoogleGenerativeAIEmbeddings
-    # Load API key from .env
-    with open('.env', 'r') as f:
-        for line in f:
-            if 'GOOGLE_API_KEY' in line and not line.strip().startswith('#'):
-                api_key = line.split('=', 1)[1].strip().strip('"').strip("'")
-                os.environ['GOOGLE_API_KEY'] = api_key
-                break
+    # API key is already loaded by config.py via load_dotenv()
 else:
     from sentence_transformers import SentenceTransformer
 
