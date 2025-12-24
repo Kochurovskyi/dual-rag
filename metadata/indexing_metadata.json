@@ -1,0 +1,18 @@
+{
+  "total_files_indexed": 732,
+  "total_chunks_indexed": 5614,
+  "sources": {
+    "langgraph": {
+      "source": "langgraph",
+      "files_indexed": 137,
+      "chunks_indexed": 904,
+      "errors": []
+    },
+    "langchain": {
+      "source": "langchain",
+      "files_indexed": 595,
+      "chunks_indexed": 4710,
+      "errors": []
+    }
+  }
+}

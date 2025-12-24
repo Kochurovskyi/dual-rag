@@ -1,0 +1,1644 @@
+{
+  "test_data_file": null,
+  "test_metadata": {
+    "version": "2.0",
+    "created": "2025-01-22",
+    "updated": "2025-01-22",
+    "description": "Test queries for Phase 2 accuracy validation - 10 LangGraph + 10 LangChain queries",
+    "baseline_date": "20251222_183739",
+    "baseline_file": "metadata/query_accuracy_20251222_183739.json",
+    "total_queries": 20,
+    "langgraph_queries": 10,
+    "langchain_queries": 10
+  },
+  "summary": {
+    "langgraph_avg_precision": 0.10500000000000001,
+    "langchain_avg_precision": 0.14,
+    "langgraph_avg_similarity": 0.6030520161191383,
+    "langchain_avg_similarity": 0.624235317675117
+  },
+  "queries": {
+    "How do I add persistence to a LangGraph agent?": {
+      "langgraph": {
+        "total_results": 10,
+        "high_relevance": 10,
+        "precision_at_k": 1.0,
+        "avg_similarity": 0.6801653208434582,
+        "top_similarity": 0.7273562978208066,
+        "highly_relevant": [
+          {
+            "rank": 1,
+            "file": "langgraph/langgraph/agents/context/index.md",
+            "similarity": 0.7273562978208066,
+            "relevance": 8.159425191283226
+          },
+          {
+            "rank": 2,
+            "file": "langgraph/langgraph/agents/memory/index.md",
+            "similarity": 0.7273562978208066,
+            "relevance": 8.159425191283226
+          },
+          {
+            "rank": 3,
+            "file": "langgraph/langgraph/cloud/concepts/threads/index.md",
+            "similarity": 0.7271831411123276,
+            "relevance": 8.158732564449311
+          },
+          {
+            "rank": 4,
+            "file": "langgraph/langgraph/concepts/durable_execution/index.md",
+            "similarity": 0.7146166276931762,
+            "relevance": 7.358466510772705
+          },
+          {
+            "rank": 5,
+            "file": "langgraph/langgraph/concepts/persistence/index.md",
+            "similarity": 0.6617661654949188,
+            "relevance": 7.897064661979675
+          },
+          {
+            "rank": 6,
+            "file": "langgraph/langgraph/concepts/time-travel/index.md",
+            "similarity": 0.6617661654949188,
+            "relevance": 7.897064661979675
+          },
+          {
+            "rank": 7,
+            "file": "langgraph/langgraph/how-tos/memory/index.md",
+            "similarity": 0.6560447111725807,
+            "relevance": 7.874178844690323
+          },
+          {
+            "rank": 8,
+            "file": "langgraph/langgraph/how-tos/persistence/index.md",
+            "similarity": 0.6560447111725807,
+            "relevance": 7.874178844690323
+          },
+          {
+            "rank": 9,
+            "file": "langgraph/langgraph/concepts/memory/index.md",
+            "similarity": 0.6396531760692596,
+            "relevance": 7.808612704277039
+          },
+          {
+            "rank": 10,
+            "file": "langgraph/langgraph/how-tos/persistence/index.md",
+            "similarity": 0.6298659145832062,
+            "relevance": 7.019463658332825
+          }
+        ],
+        "moderately_relevant": [],
+        "low_relevance": []
+      },
+      "langchain": {
+        "total_results": 10,
+        "high_relevance": 3,
+        "precision_at_k": 0.3,
+        "avg_similarity": 0.7064787592731954,
+        "top_similarity": 0.7670433320993414,
+        "highly_relevant": [
+          {
+            "rank": 3,
+            "file": "langchain/oss/javascript/langgraph/persistence.md",
+            "similarity": 0.752571277818926,
+            "relevance": 7.510285111275704
+          },
+          {
+            "rank": 4,
+            "file": "langchain/oss/python/langgraph/persistence.md",
+            "similarity": 0.752571277818926,
+            "relevance": 7.510285111275704
+          },
+          {
+            "rank": 5,
+            "file": "langchain/oss/python/langgraph/add-memory.md",
+            "similarity": 0.6895149529725313,
+            "relevance": 8.008059811890124
+          }
+        ],
+        "moderately_relevant": [
+          {
+            "rank": 1,
+            "file": "langchain/oss/javascript/releases/langchain-v1.md",
+            "similarity": 0.7670433320993414,
+            "relevance": 6.568173328397366
+          },
+          {
+            "rank": 2,
+            "file": "langchain/oss/python/releases/langchain-v1.md",
+            "similarity": 0.7563993874559036,
+            "relevance": 6.5255975498236145
+          },
+          {
+            "rank": 6,
+            "file": "langchain/langsmith/data-storage-and-privacy.md",
+            "similarity": 0.6805364489555359,
+            "relevance": 5.4721457958221436
+          }
+        ],
+        "low_relevance": [
+          {
+            "rank": 7,
+            "file": "langchain/langsmith/generative-ui-react.md",
+            "similarity": 0.6676500000000001,
+            "relevance": 3.4206000000000003
+          }
+        ]
+      }
+    },
+    "What's the difference between StateGraph and MessageGraph?": {
+      "langgraph": {
+        "total_results": 10,
+        "high_relevance": 9,
+        "precision_at_k": 0.9,
+        "avg_similarity": 0.6009980525430043,
+        "top_similarity": 0.6481,
+        "highly_relevant": [
+          {
+            "rank": 2,
+            "file": "langgraph/langgraph/cloud/deployment/graph_rebuild/index.md",
+            "similarity": 0.609,
+            "relevance": 7.936
+          },
+          {
+            "rank": 3,
+            "file": "langgraph/langgraph/how-tos/use-remote-graph/index.md",
+            "similarity": 0.609,
+            "relevance": 7.936
+          },
+          {
+            "rank": 4,
+            "file": "langgraph/langgraph/concepts/low_level/index.md",
+            "similarity": 0.6033333333333333,
+            "relevance": 7.913333333333333
+          },
+          {
+            "rank": 5,
+            "file": "langgraph/langgraph/concepts/multi_agent/index.md",
+            "similarity": 0.6033333333333333,
+            "relevance": 7.913333333333333
+          },
+          {
+            "rank": 6,
+            "file": "langgraph/langgraph/how-tos/graph-api/index.md",
+            "similarity": 0.6033333333333333,
+            "relevance": 7.913333333333333
+          },
+          {
+            "rank": 7,
+            "file": "langgraph/langgraph/how-tos/multi_agent/index.md",
+            "similarity": 0.6033333333333333,
+            "relevance": 7.913333333333333
+          },
+          {
+            "rank": 8,
+            "file": "langgraph/langgraph/agents/context/index.md",
+            "similarity": 0.6022205591201781,
+            "relevance": 7.9088822364807125
+          },
+          {
+            "rank": 9,
+            "file": "langgraph/langgraph/agents/context/index.md",
+            "similarity": 0.588326632976532,
+            "relevance": 7.853306531906128
+          },
+          {
+            "rank": 10,
+            "file": "langgraph/langgraph/cloud/deployment/graph_rebuild/index.md",
+            "similarity": 0.54,
+            "relevance": 7.66
+          }
+        ],
+        "moderately_relevant": [],
+        "low_relevance": [
+          {
+            "rank": 1,
+            "file": "langgraph/langgraph/llms-txt-overview/index.md",
+            "similarity": 0.6481,
+            "relevance": 3.0924
+          }
+        ]
+      },
+      "langchain": {
+        "total_results": 10,
+        "high_relevance": 10,
+        "precision_at_k": 1.0,
+        "avg_similarity": 0.5808355783820153,
+        "top_similarity": 0.609,
+        "highly_relevant": [
+          {
+            "rank": 1,
+            "file": "langchain/langsmith/graph-rebuild.md",
+            "similarity": 0.609,
+            "relevance": 7.936
+          },
+          {
+            "rank": 2,
+            "file": "langchain/langsmith/use-remote-graph.md",
+            "similarity": 0.609,
+            "relevance": 7.936
+          },
+          {
+            "rank": 3,
+            "file": "langchain/oss/python/migrate/langgraph-v1.md",
+            "similarity": 0.609,
+            "relevance": 7.936
+          },
+          {
+            "rank": 4,
+            "file": "langchain/oss/javascript/langgraph/use-graph-api.md",
+            "similarity": 0.601714861690998,
+            "relevance": 7.406859446763992
+          },
+          {
+            "rank": 5,
+            "file": "langchain/oss/javascript/langgraph/choosing-apis.md",
+            "similarity": 0.5764113903045653,
+            "relevance": 7.305645561218261
+          },
+          {
+            "rank": 6,
+            "file": "langchain/oss/javascript/langgraph/add-memory.md",
+            "similarity": 0.5680038630962372,
+            "relevance": 7.772015452384949
+          },
+          {
+            "rank": 7,
+            "file": "langchain/langsmith/agent-server-distributed-tracing.md",
+            "similarity": 0.5630000000000001,
+            "relevance": 7.752000000000001
+          },
+          {
+            "rank": 8,
+            "file": "langchain/oss/javascript/langgraph/use-graph-api.md",
+            "similarity": 0.56,
+            "relevance": 7.24
+          },
+          {
+            "rank": 9,
+            "file": "langchain/oss/python/langgraph/use-graph-api.md",
+            "similarity": 0.56,
+            "relevance": 7.24
+          },
+          {
+            "rank": 10,
+            "file": "langchain/oss/python/langgraph/observability.md",
+            "similarity": 0.5522256687283515,
+            "relevance": 7.208902674913406
+          }
+        ],
+        "moderately_relevant": [],
+        "low_relevance": []
+      }
+    },
+    "Show me how to implement human-in-the-loop with LangGraph": {
+      "langgraph": {
+        "total_results": 10,
+        "high_relevance": 2,
+        "precision_at_k": 0.2,
+        "avg_similarity": 0.612865099310875,
+        "top_similarity": 0.6430085897445679,
+        "highly_relevant": [
+          {
+            "rank": 1,
+            "file": "langgraph/langgraph/cloud/how-tos/add-human-in-the-loop/index.md",
+            "similarity": 0.6430085897445679,
+            "relevance": 7.8220343589782715
+          },
+          {
+            "rank": 2,
+            "file": "langgraph/langgraph/cloud/how-tos/human_in_the_loop_breakpoint/index.md",
+            "similarity": 0.6430085897445679,
+            "relevance": 7.8220343589782715
+          }
+        ],
+        "moderately_relevant": [
+          {
+            "rank": 3,
+            "file": "langgraph/langgraph/cloud/how-tos/add-human-in-the-loop/index.md",
+            "similarity": 0.632655143737793,
+            "relevance": 6.280620574951172
+          },
+          {
+            "rank": 4,
+            "file": "langgraph/langgraph/cloud/how-tos/human_in_the_loop_breakpoint/index.md",
+            "similarity": 0.632655143737793,
+            "relevance": 6.280620574951172
+          },
+          {
+            "rank": 5,
+            "file": "langgraph/langgraph/agents/human-in-the-loop/index.md",
+            "similarity": 0.5965842008590698,
+            "relevance": 6.136336803436279
+          }
+        ],
+        "low_relevance": []
+      },
+      "langchain": {
+        "total_results": 10,
+        "high_relevance": 7,
+        "precision_at_k": 0.7,
+        "avg_similarity": 0.6275163284026776,
+        "top_similarity": 0.6735294117647059,
+        "highly_relevant": [
+          {
+            "rank": 2,
+            "file": "langchain/oss/python/langgraph/use-functional-api.md",
+            "similarity": 0.6609947949647903,
+            "relevance": 7.893979179859161
+          },
+          {
+            "rank": 3,
+            "file": "langchain/oss/javascript/langgraph/use-functional-api.md",
+            "similarity": 0.6550862073898316,
+            "relevance": 7.870344829559326
+          },
+          {
+            "rank": 4,
+            "file": "langchain/oss/python/langgraph/sql-agent.md",
+            "similarity": 0.6325526535511017,
+            "relevance": 8.530210614204407
+          },
+          {
+            "rank": 6,
+            "file": "langchain/oss/python/langgraph/persistence.md",
+            "similarity": 0.6127390742301941,
+            "relevance": 7.7009562969207765
+          },
+          {
+            "rank": 7,
+            "file": "langchain/oss/python/langgraph/sql-agent.md",
+            "similarity": 0.6124414280056953,
+            "relevance": 8.449765712022781
+          },
+          {
+            "rank": 9,
+            "file": "langchain/oss/javascript/langchain/sql-agent.md",
+            "similarity": 0.6014285714285714,
+            "relevance": 7.405714285714286
+          },
+          {
+            "rank": 10,
+            "file": "langchain/oss/python/langchain/sql-agent.md",
+            "similarity": 0.6014285714285714,
+            "relevance": 7.405714285714286
+          }
+        ],
+        "moderately_relevant": [
+          {
+            "rank": 1,
+            "file": "langchain/langsmith/generative-ui-react.md",
+            "similarity": 0.6735294117647059,
+            "relevance": 4.194117647058824
+          },
+          {
+            "rank": 5,
+            "file": "langchain/oss/javascript/langchain/human-in-the-loop.md",
+            "similarity": 0.613404580950737,
+            "relevance": 6.703618323802948
+          },
+          {
+            "rank": 8,
+            "file": "langchain/oss/python/langgraph/use-functional-api.md",
+            "similarity": 0.6115579903125763,
+            "relevance": 6.196231961250305
+          }
+        ],
+        "low_relevance": []
+      }
+    },
+    "How do I handle errors and retries in LangGraph nodes?": {
+      "langgraph": {
+        "total_results": 10,
+        "high_relevance": 0,
+        "precision_at_k": 0.0,
+        "avg_similarity": 0.6177905492305756,
+        "top_similarity": 0.6825909176468848,
+        "highly_relevant": [],
+        "moderately_relevant": [
+          {
+            "rank": 1,
+            "file": "langgraph/langgraph/concepts/durable_execution/index.md",
+            "similarity": 0.6825909176468848,
+            "relevance": 6.930363670587539
+          },
+          {
+            "rank": 2,
+            "file": "langgraph/langgraph/concepts/durable_execution/index.md",
+            "similarity": 0.6162663683295251,
+            "relevance": 6.0650654733181
+          },
+          {
+            "rank": 3,
+            "file": "langgraph/langgraph/agents/human-in-the-loop/index.md",
+            "similarity": 0.6104096412658692,
+            "relevance": 6.641638565063477
+          }
+        ],
+        "low_relevance": []
+      },
+      "langchain": {
+        "total_results": 10,
+        "high_relevance": 6,
+        "precision_at_k": 0.6,
+        "avg_similarity": 0.6935455207143246,
+        "top_similarity": 0.7809825618926968,
+        "highly_relevant": [
+          {
+            "rank": 1,
+            "file": "langchain/oss/javascript/langgraph/thinking-in-langgraph.md",
+            "similarity": 0.7809825618926968,
+            "relevance": 7.923930247570787
+          },
+          {
+            "rank": 2,
+            "file": "langchain/oss/javascript/langgraph/graph-api.md",
+            "similarity": 0.7150935020006515,
+            "relevance": 7.660374008002606
+          },
+          {
+            "rank": 3,
+            "file": "langchain/oss/javascript/langgraph/graph-api.md",
+            "similarity": 0.7026253297112205,
+            "relevance": 7.610501318844882
+          },
+          {
+            "rank": 4,
+            "file": "langchain/oss/python/langgraph/thinking-in-langgraph.md",
+            "similarity": 0.6990911902487278,
+            "relevance": 7.596364760994911
+          },
+          {
+            "rank": 5,
+            "file": "langchain/oss/javascript/langgraph/use-graph-api.md",
+            "similarity": 0.6966731697320938,
+            "relevance": 7.586692678928375
+          },
+          {
+            "rank": 7,
+            "file": "langchain/oss/javascript/langgraph/use-graph-api.md",
+            "similarity": 0.6760168042778969,
+            "relevance": 7.504067217111587
+          }
+        ],
+        "moderately_relevant": [
+          {
+            "rank": 6,
+            "file": "langchain/oss/python/langgraph/use-graph-api.md",
+            "similarity": 0.6820985957980157,
+            "relevance": 6.928394383192063
+          },
+          {
+            "rank": 8,
+            "file": "langchain/oss/javascript/langgraph/use-functional-api.md",
+            "similarity": 0.6675728112459183,
+            "relevance": 6.870291244983673
+          },
+          {
+            "rank": 9,
+            "file": "langchain/langsmith/use-stream-react.md",
+            "similarity": 0.6612142857142858,
+            "relevance": 6.444857142857143
+          }
+        ],
+        "low_relevance": [
+          {
+            "rank": 10,
+            "file": "langchain/langsmith/generative-ui-react.md",
+            "similarity": 0.6540869565217392,
+            "relevance": 3.816347826086957
+          }
+        ]
+      }
+    },
+    "What are best practices for state management in LangGraph?": {
+      "langgraph": {
+        "total_results": 10,
+        "high_relevance": 0,
+        "precision_at_k": 0.0,
+        "avg_similarity": 0.6724996927380562,
+        "top_similarity": 0.6849901646375656,
+        "highly_relevant": [],
+        "moderately_relevant": [
+          {
+            "rank": 1,
+            "file": "langgraph/langgraph/concepts/durable_execution/index.md",
+            "similarity": 0.6849901646375656,
+            "relevance": 6.739960658550262
+          },
+          {
+            "rank": 2,
+            "file": "langgraph/langgraph/cloud/concepts/threads/index.md",
+            "similarity": 0.6779568687081337,
+            "relevance": 6.211827474832535
+          },
+          {
+            "rank": 3,
+            "file": "langgraph/langgraph/concepts/persistence/index.md",
+            "similarity": 0.6779568687081337,
+            "relevance": 6.211827474832535
+          }
+        ],
+        "low_relevance": []
+      },
+      "langchain": {
+        "total_results": 10,
+        "high_relevance": 2,
+        "precision_at_k": 0.2,
+        "avg_similarity": 0.6839629045546055,
+        "top_similarity": 0.7331354365944863,
+        "highly_relevant": [
+          {
+            "rank": 3,
+            "file": "langchain/oss/javascript/langgraph/choosing-apis.md",
+            "similarity": 0.684813803434372,
+            "relevance": 7.239255213737488
+          },
+          {
+            "rank": 4,
+            "file": "langchain/oss/python/langgraph/choosing-apis.md",
+            "similarity": 0.684813803434372,
+            "relevance": 7.239255213737488
+          }
+        ],
+        "moderately_relevant": [
+          {
+            "rank": 1,
+            "file": "langchain/oss/javascript/langgraph/interrupts.md",
+            "similarity": 0.7331354365944863,
+            "relevance": 6.432541746377945
+          },
+          {
+            "rank": 2,
+            "file": "langchain/oss/python/langgraph/persistence.md",
+            "similarity": 0.6899386239051819,
+            "relevance": 6.259754495620728
+          },
+          {
+            "rank": 5,
+            "file": "langchain/oss/javascript/concepts/context.md",
+            "similarity": 0.6822810620069504,
+            "relevance": 5.2291242480278015
+          }
+        ],
+        "low_relevance": []
+      }
+    },
+    "How do I stream responses from a LangGraph agent?": {
+      "langgraph": {
+        "total_results": 10,
+        "high_relevance": 0,
+        "precision_at_k": 0.0,
+        "avg_similarity": 0.597506657242775,
+        "top_similarity": 0.6213796138763428,
+        "highly_relevant": [],
+        "moderately_relevant": [
+          {
+            "rank": 1,
+            "file": "langgraph/langgraph/cloud/how-tos/streaming/index.md",
+            "similarity": 0.6213796138763428,
+            "relevance": 5.285518455505371
+          },
+          {
+            "rank": 2,
+            "file": "langgraph/langgraph/cloud/how-tos/streaming/index.md",
+            "similarity": 0.6187258064746857,
+            "relevance": 5.2749032258987425
+          },
+          {
+            "rank": 3,
+            "file": "langgraph/langgraph/cloud/how-tos/streaming/index.md",
+            "similarity": 0.6123203635215759,
+            "relevance": 5.2492814540863035
+          }
+        ],
+        "low_relevance": []
+      },
+      "langchain": {
+        "total_results": 10,
+        "high_relevance": 0,
+        "precision_at_k": 0.0,
+        "avg_similarity": 0.6158173035753184,
+        "top_similarity": 0.7147928795937835,
+        "highly_relevant": [],
+        "moderately_relevant": [
+          {
+            "rank": 1,
+            "file": "langchain/oss/javascript/langchain/human-in-the-loop.md",
+            "similarity": 0.7147928795937835,
+            "relevance": 4.659171518375134
+          },
+          {
+            "rank": 2,
+            "file": "langchain/oss/python/langchain/streaming.md",
+            "similarity": 0.6202997863292694,
+            "relevance": 4.2811991453170775
+          },
+          {
+            "rank": 3,
+            "file": "langchain/langsmith/streaming.md",
+            "similarity": 0.6110808253288269,
+            "relevance": 4.244323301315307
+          }
+        ],
+        "low_relevance": []
+      }
+    },
+    "How do I create a multi-agent system with LangGraph?": {
+      "langgraph": {
+        "total_results": 10,
+        "high_relevance": 0,
+        "precision_at_k": 0.0,
+        "avg_similarity": 0.5589436140927402,
+        "top_similarity": 0.5909090909090908,
+        "highly_relevant": [],
+        "moderately_relevant": [
+          {
+            "rank": 1,
+            "file": "langgraph/langgraph/tutorials/langgraph-platform/local-server/index.md",
+            "similarity": 0.5909090909090908,
+            "relevance": 4.113636363636363
+          },
+          {
+            "rank": 2,
+            "file": "langgraph/langgraph/index/index.md",
+            "similarity": 0.5578934550285339,
+            "relevance": 4.731573820114136
+          },
+          {
+            "rank": 3,
+            "file": "langgraph/langgraph/agents/evals/index.md",
+            "similarity": 0.5578934550285339,
+            "relevance": 4.731573820114136
+          }
+        ],
+        "low_relevance": [
+          {
+            "rank": 9,
+            "file": "langgraph/langgraph/agents/run_agents/index.md",
+            "similarity": 0.5466364324092865,
+            "relevance": 3.936545729637146
+          },
+          {
+            "rank": 10,
+            "file": "langgraph/langgraph/tutorials/get-started/2-add-tools/index.md",
+            "similarity": 0.5466364324092865,
+            "relevance": 3.936545729637146
+          }
+        ]
+      },
+      "langchain": {
+        "total_results": 10,
+        "high_relevance": 0,
+        "precision_at_k": 0.0,
+        "avg_similarity": 0.5854893643057959,
+        "top_similarity": 0.5968,
+        "highly_relevant": [],
+        "moderately_relevant": [
+          {
+            "rank": 1,
+            "file": "langchain/oss/javascript/langgraph/use-graph-api.md",
+            "similarity": 0.5968,
+            "relevance": 4.8872
+          },
+          {
+            "rank": 5,
+            "file": "langchain/oss/python/langgraph/local-server.md",
+            "similarity": 0.5909090909090908,
+            "relevance": 4.113636363636363
+          },
+          {
+            "rank": 8,
+            "file": "langchain/oss/python/langchain/multi-agent/handoffs.md",
+            "similarity": 0.5755199790000916,
+            "relevance": 4.552079916000366
+          }
+        ],
+        "low_relevance": [
+          {
+            "rank": 2,
+            "file": "langchain/langsmith/composite-evaluators.md",
+            "similarity": 0.5930434782608696,
+            "relevance": 3.8721739130434782
+          },
+          {
+            "rank": 3,
+            "file": "langchain/langsmith/local-server.md",
+            "similarity": 0.5909090909090908,
+            "relevance": 3.1136363636363633
+          }
+        ]
+      }
+    },
+    "How do I add tools to a LangGraph agent?": {
+      "langgraph": {
+        "total_results": 10,
+        "high_relevance": 0,
+        "precision_at_k": 0.0,
+        "avg_similarity": 0.5792117834091186,
+        "top_similarity": 0.5832140445709229,
+        "highly_relevant": [],
+        "moderately_relevant": [
+          {
+            "rank": 1,
+            "file": "langgraph/langgraph/agents/tools/index.md",
+            "similarity": 0.5832140445709229,
+            "relevance": 5.582856178283691
+          },
+          {
+            "rank": 2,
+            "file": "langgraph/langgraph/concepts/agentic_concepts/index.md",
+            "similarity": 0.5832140445709229,
+            "relevance": 5.582856178283691
+          },
+          {
+            "rank": 3,
+            "file": "langgraph/langgraph/concepts/tools/index.md",
+            "similarity": 0.5832140445709229,
+            "relevance": 5.582856178283691
+          }
+        ],
+        "low_relevance": []
+      },
+      "langchain": {
+        "total_results": 10,
+        "high_relevance": 0,
+        "precision_at_k": 0.0,
+        "avg_similarity": 0.5944623163492547,
+        "top_similarity": 0.6829402766149977,
+        "highly_relevant": [],
+        "moderately_relevant": [
+          {
+            "rank": 1,
+            "file": "langchain/oss/javascript/migrate/langchain-v1.md",
+            "similarity": 0.6829402766149977,
+            "relevance": 4.231761106459991
+          },
+          {
+            "rank": 6,
+            "file": "langchain/oss/javascript/langgraph/workflows-agents.md",
+            "similarity": 0.582017183303833,
+            "relevance": 5.578068733215332
+          },
+          {
+            "rank": 7,
+            "file": "langchain/oss/javascript/langchain/quickstart.md",
+            "similarity": 0.5748289167881012,
+            "relevance": 4.549315667152404
+          }
+        ],
+        "low_relevance": [
+          {
+            "rank": 2,
+            "file": "langchain/langsmith/generative-ui-react.md",
+            "similarity": 0.609,
+            "relevance": 3.186
+          },
+          {
+            "rank": 3,
+            "file": "langchain/langsmith/use-stream-react.md",
+            "similarity": 0.609,
+            "relevance": 3.186
+          }
+        ]
+      }
+    },
+    "How do I deploy a LangGraph agent to production?": {
+      "langgraph": {
+        "total_results": 10,
+        "high_relevance": 0,
+        "precision_at_k": 0.0,
+        "avg_similarity": 0.6098457871696332,
+        "top_similarity": 0.6697956160857127,
+        "highly_relevant": [],
+        "moderately_relevant": [
+          {
+            "rank": 1,
+            "file": "langgraph/langgraph/concepts/langgraph_server/index.md",
+            "similarity": 0.6697956160857127,
+            "relevance": 5.929182464342851
+          },
+          {
+            "rank": 2,
+            "file": "langgraph/langgraph/index/index.md",
+            "similarity": 0.6136363636363635,
+            "relevance": 5.704545454545454
+          },
+          {
+            "rank": 3,
+            "file": "langgraph/langgraph/agents/evals/index.md",
+            "similarity": 0.6136363636363635,
+            "relevance": 5.704545454545454
+          }
+        ],
+        "low_relevance": []
+      },
+      "langchain": {
+        "total_results": 10,
+        "high_relevance": 0,
+        "precision_at_k": 0.0,
+        "avg_similarity": 0.6280972311879907,
+        "top_similarity": 0.6622772812843323,
+        "highly_relevant": [],
+        "moderately_relevant": [
+          {
+            "rank": 1,
+            "file": "langchain/oss/javascript/langchain/deploy.md",
+            "similarity": 0.6622772812843323,
+            "relevance": 4.899109125137329
+          },
+          {
+            "rank": 2,
+            "file": "langchain/oss/python/langchain/deploy.md",
+            "similarity": 0.6622772812843323,
+            "relevance": 4.899109125137329
+          },
+          {
+            "rank": 3,
+            "file": "langchain/langsmith/cicd-pipeline-example.md",
+            "similarity": 0.6513638600707055,
+            "relevance": 4.855455440282822
+          }
+        ],
+        "low_relevance": [
+          {
+            "rank": 5,
+            "file": "langchain/langsmith/generative-ui-react.md",
+            "similarity": 0.6207692307692307,
+            "relevance": 3.983076923076923
+          },
+          {
+            "rank": 6,
+            "file": "langchain/langsmith/use-stream-react.md",
+            "similarity": 0.6207692307692307,
+            "relevance": 3.983076923076923
+          }
+        ]
+      }
+    },
+    "How do I use subgraphs in LangGraph?": {
+      "langgraph": {
+        "total_results": 10,
+        "high_relevance": 0,
+        "precision_at_k": 0.0,
+        "avg_similarity": 0.6140638025403022,
+        "top_similarity": 0.641399290561676,
+        "highly_relevant": [],
+        "moderately_relevant": [
+          {
+            "rank": 1,
+            "file": "langgraph/langgraph/concepts/subgraphs/index.md",
+            "similarity": 0.641399290561676,
+            "relevance": 5.5655971622467035
+          },
+          {
+            "rank": 2,
+            "file": "langgraph/langgraph/concepts/subgraphs/index.md",
+            "similarity": 0.6402143710851669,
+            "relevance": 5.5608574843406675
+          },
+          {
+            "rank": 3,
+            "file": "langgraph/langgraph/how-tos/subgraph/index.md",
+            "similarity": 0.6402143710851669,
+            "relevance": 5.5608574843406675
+          }
+        ],
+        "low_relevance": []
+      },
+      "langchain": {
+        "total_results": 10,
+        "high_relevance": 0,
+        "precision_at_k": 0.0,
+        "avg_similarity": 0.5823443595527947,
+        "top_similarity": 0.6594012086781171,
+        "highly_relevant": [],
+        "moderately_relevant": [
+          {
+            "rank": 1,
+            "file": "langchain/oss/javascript/langgraph/use-subgraphs.md",
+            "similarity": 0.6594012086781171,
+            "relevance": 5.6376048347124685
+          },
+          {
+            "rank": 2,
+            "file": "langchain/langsmith/streaming.md",
+            "similarity": 0.6468239244016316,
+            "relevance": 4.5872956976065264
+          },
+          {
+            "rank": 3,
+            "file": "langchain/oss/javascript/langgraph/use-subgraphs.md",
+            "similarity": 0.6396696363176618,
+            "relevance": 5.558678545270647
+          }
+        ],
+        "low_relevance": []
+      }
+    },
+    "How do I build a RAG application with LangChain?": {
+      "langgraph": {
+        "total_results": 10,
+        "high_relevance": 0,
+        "precision_at_k": 0.0,
+        "avg_similarity": 0.6400202725401775,
+        "top_similarity": 0.6527509093284607,
+        "highly_relevant": [],
+        "moderately_relevant": [
+          {
+            "rank": 1,
+            "file": "langgraph/langgraph/tutorials/rag/langgraph_agentic_rag/index.md",
+            "similarity": 0.6527509093284607,
+            "relevance": 4.111003637313843
+          },
+          {
+            "rank": 2,
+            "file": "langgraph/langgraph/index/index.md",
+            "similarity": 0.6430769230769231,
+            "relevance": 4.072307692307692
+          },
+          {
+            "rank": 3,
+            "file": "langgraph/langgraph/agents/evals/index.md",
+            "similarity": 0.6430769230769231,
+            "relevance": 4.072307692307692
+          }
+        ],
+        "low_relevance": [
+          {
+            "rank": 10,
+            "file": "langgraph/langgraph/tutorials/rag/langgraph_agentic_rag/index.md",
+            "similarity": 0.6164396703243256,
+            "relevance": 3.9657586812973022
+          }
+        ]
+      },
+      "langchain": {
+        "total_results": 10,
+        "high_relevance": 0,
+        "precision_at_k": 0.0,
+        "avg_similarity": 0.63628544151783,
+        "top_similarity": 0.6764487624168396,
+        "highly_relevant": [],
+        "moderately_relevant": [
+          {
+            "rank": 1,
+            "file": "langchain/oss/python/langchain/rag.md",
+            "similarity": 0.6764487624168396,
+            "relevance": 4.205795049667358
+          },
+          {
+            "rank": 2,
+            "file": "langchain/oss/javascript/langchain/rag.md",
+            "similarity": 0.6737857758998871,
+            "relevance": 4.195143103599548
+          },
+          {
+            "rank": 3,
+            "file": "langchain/langsmith/evaluate-rag-tutorial.md",
+            "similarity": 0.6508165284991265,
+            "relevance": 4.853266113996506
+          }
+        ],
+        "low_relevance": [
+          {
+            "rank": 7,
+            "file": "langchain/oss/python/langchain/rag.md",
+            "similarity": 0.6205328702926636,
+            "relevance": 3.2321314811706543
+          },
+          {
+            "rank": 8,
+            "file": "langchain/oss/javascript/langchain/rag.md",
+            "similarity": 0.6202363073825836,
+            "relevance": 3.9809452295303345
+          }
+        ]
+      }
+    },
+    "How do I create an agent with LangChain?": {
+      "langgraph": {
+        "total_results": 10,
+        "high_relevance": 0,
+        "precision_at_k": 0.0,
+        "avg_similarity": 0.5915761734247207,
+        "top_similarity": 0.5985872447490692,
+        "highly_relevant": [],
+        "moderately_relevant": [
+          {
+            "rank": 1,
+            "file": "langgraph/langgraph/agents/agents/index.md",
+            "similarity": 0.5985872447490692,
+            "relevance": 4.394348978996277
+          },
+          {
+            "rank": 2,
+            "file": "langgraph/langgraph/agents/overview/index.md",
+            "similarity": 0.5985872447490692,
+            "relevance": 4.394348978996277
+          },
+          {
+            "rank": 3,
+            "file": "langgraph/langgraph/agents/prebuilt/index.md",
+            "similarity": 0.5985872447490692,
+            "relevance": 4.394348978996277
+          }
+        ],
+        "low_relevance": [
+          {
+            "rank": 4,
+            "file": "langgraph/langgraph/index/index.md",
+            "similarity": 0.5885714285714285,
+            "relevance": 3.354285714285714
+          },
+          {
+            "rank": 5,
+            "file": "langgraph/langgraph/agents/evals/index.md",
+            "similarity": 0.5885714285714285,
+            "relevance": 3.354285714285714
+          }
+        ]
+      },
+      "langchain": {
+        "total_results": 10,
+        "high_relevance": 0,
+        "precision_at_k": 0.0,
+        "avg_similarity": 0.6077143525897277,
+        "top_similarity": 0.6332491338253021,
+        "highly_relevant": [],
+        "moderately_relevant": [
+          {
+            "rank": 1,
+            "file": "langchain/oss/python/releases/langchain-v1.md",
+            "similarity": 0.6332491338253021,
+            "relevance": 4.5329965353012085
+          },
+          {
+            "rank": 2,
+            "file": "langchain/oss/python/langchain/voice-agent.md",
+            "similarity": 0.6192,
+            "relevance": 4.4768
+          },
+          {
+            "rank": 3,
+            "file": "langchain/oss/javascript/releases/langchain-v1.md",
+            "similarity": 0.6164145171642303,
+            "relevance": 4.465658068656921
+          }
+        ],
+        "low_relevance": [
+          {
+            "rank": 8,
+            "file": "langchain/langsmith/evaluate-with-attachments.md",
+            "similarity": 0.5984615384615385,
+            "relevance": 3.393846153846154
+          },
+          {
+            "rank": 9,
+            "file": "langchain/langsmith/evaluate-with-attachments.md",
+            "similarity": 0.5984615384615385,
+            "relevance": 3.393846153846154
+          }
+        ]
+      }
+    },
+    "How do I add memory to a LangChain chain?": {
+      "langgraph": {
+        "total_results": 10,
+        "high_relevance": 0,
+        "precision_at_k": 0.0,
+        "avg_similarity": 0.6485667429995537,
+        "top_similarity": 0.7038989633321762,
+        "highly_relevant": [],
+        "moderately_relevant": [
+          {
+            "rank": 1,
+            "file": "langgraph/langgraph/agents/context/index.md",
+            "similarity": 0.7038989633321762,
+            "relevance": 5.065595853328705
+          },
+          {
+            "rank": 9,
+            "file": "langgraph/langgraph/agents/memory/index.md",
+            "similarity": 0.6225342333316803,
+            "relevance": 4.740136933326721
+          },
+          {
+            "rank": 10,
+            "file": "langgraph/langgraph/how-tos/memory/index.md",
+            "similarity": 0.6225342333316803,
+            "relevance": 4.740136933326721
+          }
+        ],
+        "low_relevance": [
+          {
+            "rank": 2,
+            "file": "langgraph/langgraph/index/index.md",
+            "similarity": 0.6481,
+            "relevance": 3.3424
+          },
+          {
+            "rank": 3,
+            "file": "langgraph/langgraph/agents/evals/index.md",
+            "similarity": 0.6481,
+            "relevance": 3.3424
+          }
+        ]
+      },
+      "langchain": {
+        "total_results": 10,
+        "high_relevance": 0,
+        "precision_at_k": 0.0,
+        "avg_similarity": 0.6698852093189023,
+        "top_similarity": 0.7288489231311757,
+        "highly_relevant": [],
+        "moderately_relevant": [
+          {
+            "rank": 1,
+            "file": "langchain/oss/python/concepts/memory.md",
+            "similarity": 0.7288489231311757,
+            "relevance": 5.165395692524703
+          },
+          {
+            "rank": 2,
+            "file": "langchain/oss/javascript/concepts/memory.md",
+            "similarity": 0.7261653931283433,
+            "relevance": 5.154661572513373
+          },
+          {
+            "rank": 3,
+            "file": "langchain/oss/javascript/langgraph/add-memory.md",
+            "similarity": 0.7241816199078508,
+            "relevance": 5.146726479631403
+          }
+        ],
+        "low_relevance": []
+      }
+    },
+    "What's the difference between chains and agents in LangChain?": {
+      "langgraph": {
+        "total_results": 10,
+        "high_relevance": 0,
+        "precision_at_k": 0.0,
+        "avg_similarity": 0.6439904140985012,
+        "top_similarity": 0.6568125,
+        "highly_relevant": [],
+        "moderately_relevant": [],
+        "low_relevance": [
+          {
+            "rank": 1,
+            "file": "langgraph/langgraph/index/index.md",
+            "similarity": 0.6568125,
+            "relevance": 3.22725
+          },
+          {
+            "rank": 2,
+            "file": "langgraph/langgraph/agents/evals/index.md",
+            "similarity": 0.6568125,
+            "relevance": 3.22725
+          }
+        ]
+      },
+      "langchain": {
+        "total_results": 10,
+        "high_relevance": 0,
+        "precision_at_k": 0.0,
+        "avg_similarity": 0.6381202887200257,
+        "top_similarity": 0.668603811649715,
+        "highly_relevant": [],
+        "moderately_relevant": [],
+        "low_relevance": [
+          {
+            "rank": 1,
+            "file": "langchain/oss/python/langgraph/workflows-agents.md",
+            "similarity": 0.668603811649715,
+            "relevance": 3.2744152465988603
+          },
+          {
+            "rank": 2,
+            "file": "langchain/oss/javascript/langgraph/workflows-agents.md",
+            "similarity": 0.6628482749006328,
+            "relevance": 3.2513930996025313
+          }
+        ]
+      }
+    },
+    "How do I use vector stores with LangChain?": {
+      "langgraph": {
+        "total_results": 10,
+        "high_relevance": 0,
+        "precision_at_k": 0.0,
+        "avg_similarity": 0.5384107142857143,
+        "top_similarity": 0.5487500000000001,
+        "highly_relevant": [],
+        "moderately_relevant": [],
+        "low_relevance": [
+          {
+            "rank": 1,
+            "file": "langgraph/langgraph/index/index.md",
+            "similarity": 0.5487500000000001,
+            "relevance": 2.9450000000000003
+          },
+          {
+            "rank": 2,
+            "file": "langgraph/langgraph/agents/evals/index.md",
+            "similarity": 0.5487500000000001,
+            "relevance": 2.9450000000000003
+          }
+        ]
+      },
+      "langchain": {
+        "total_results": 10,
+        "high_relevance": 0,
+        "precision_at_k": 0.0,
+        "avg_similarity": 0.6503150728702187,
+        "top_similarity": 0.7391185906529426,
+        "highly_relevant": [],
+        "moderately_relevant": [
+          {
+            "rank": 1,
+            "file": "langchain/oss/python/langchain/knowledge-base.md",
+            "similarity": 0.7391185906529426,
+            "relevance": 5.20647436261177
+          },
+          {
+            "rank": 2,
+            "file": "langchain/oss/javascript/langchain/knowledge-base.md",
+            "similarity": 0.735245364350932,
+            "relevance": 5.190981457403728
+          },
+          {
+            "rank": 3,
+            "file": "langchain/oss/javascript/langchain/knowledge-base.md",
+            "similarity": 0.7310628467798232,
+            "relevance": 5.174251387119293
+          }
+        ],
+        "low_relevance": [
+          {
+            "rank": 8,
+            "file": "langchain/oss/javascript/langchain/knowledge-base.md",
+            "similarity": 0.5909090909090908,
+            "relevance": 3.8636363636363633
+          },
+          {
+            "rank": 10,
+            "file": "langchain/oss/javascript/integrations/providers/all_providers.md",
+            "similarity": 0.5909090909090908,
+            "relevance": 3.8636363636363633
+          }
+        ]
+      }
+    },
+    "How do I load documents with LangChain document loaders?": {
+      "langgraph": {
+        "total_results": 10,
+        "high_relevance": 0,
+        "precision_at_k": 0.0,
+        "avg_similarity": 0.5705982905982906,
+        "top_similarity": 0.5777777777777778,
+        "highly_relevant": [],
+        "moderately_relevant": [],
+        "low_relevance": [
+          {
+            "rank": 1,
+            "file": "langgraph/langgraph/index/index.md",
+            "similarity": 0.5777777777777778,
+            "relevance": 3.5111111111111115
+          },
+          {
+            "rank": 2,
+            "file": "langgraph/langgraph/agents/evals/index.md",
+            "similarity": 0.5777777777777778,
+            "relevance": 3.5111111111111115
+          }
+        ]
+      },
+      "langchain": {
+        "total_results": 10,
+        "high_relevance": 0,
+        "precision_at_k": 0.0,
+        "avg_similarity": 0.6223988575416033,
+        "top_similarity": 0.6971991056881168,
+        "highly_relevant": [],
+        "moderately_relevant": [
+          {
+            "rank": 1,
+            "file": "langchain/oss/python/langchain/knowledge-base.md",
+            "similarity": 0.6971991056881168,
+            "relevance": 5.188796422752468
+          },
+          {
+            "rank": 2,
+            "file": "langchain/oss/javascript/langchain/knowledge-base.md",
+            "similarity": 0.6934427399573655,
+            "relevance": 5.173770959829462
+          },
+          {
+            "rank": 3,
+            "file": "langchain/oss/javascript/langchain/rag.md",
+            "similarity": 0.6847226498154706,
+            "relevance": 5.138890599261883
+          }
+        ],
+        "low_relevance": [
+          {
+            "rank": 10,
+            "file": "langchain/langsmith/evaluate-with-attachments.md",
+            "similarity": 0.5806896551724139,
+            "relevance": 3.5227586206896557
+          }
+        ]
+      }
+    },
+    "How do I implement retrieval in LangChain?": {
+      "langgraph": {
+        "total_results": 10,
+        "high_relevance": 0,
+        "precision_at_k": 0.0,
+        "avg_similarity": 0.5328289677663283,
+        "top_similarity": 0.6436240375041962,
+        "highly_relevant": [],
+        "moderately_relevant": [
+          {
+            "rank": 1,
+            "file": "langgraph/langgraph/tutorials/rag/langgraph_agentic_rag/index.md",
+            "similarity": 0.6436240375041962,
+            "relevance": 4.574496150016785
+          }
+        ],
+        "low_relevance": [
+          {
+            "rank": 2,
+            "file": "langgraph/langgraph/tutorials/rag/langgraph_agentic_rag/index.md",
+            "similarity": 0.5480125248432159,
+            "relevance": 2.1920500993728638
+          },
+          {
+            "rank": 3,
+            "file": "langgraph/langgraph/tutorials/rag/langgraph_agentic_rag/index.md",
+            "similarity": 0.5221076607704163,
+            "relevance": 2.088430643081665
+          }
+        ]
+      },
+      "langchain": {
+        "total_results": 10,
+        "high_relevance": 0,
+        "precision_at_k": 0.0,
+        "avg_similarity": 0.5967675112498844,
+        "top_similarity": 0.6931591531634331,
+        "highly_relevant": [],
+        "moderately_relevant": [
+          {
+            "rank": 1,
+            "file": "langchain/oss/javascript/langchain/rag.md",
+            "similarity": 0.6931591531634331,
+            "relevance": 4.7726366126537325
+          },
+          {
+            "rank": 2,
+            "file": "langchain/oss/python/langchain/rag.md",
+            "similarity": 0.6929643368721008,
+            "relevance": 4.771857347488403
+          },
+          {
+            "rank": 6,
+            "file": "langchain/oss/python/langchain/knowledge-base.md",
+            "similarity": 0.5723453760147095,
+            "relevance": 4.289381504058838
+          }
+        ],
+        "low_relevance": [
+          {
+            "rank": 3,
+            "file": "langchain/oss/python/langchain/knowledge-base.md",
+            "similarity": 0.5779973268508911,
+            "relevance": 3.3119893074035645
+          },
+          {
+            "rank": 4,
+            "file": "langchain/oss/python/langgraph/agentic-rag.md",
+            "similarity": 0.5759228765964508,
+            "relevance": 2.3036915063858032
+          }
+        ]
+      }
+    },
+    "How do I add tools to a LangChain agent?": {
+      "langgraph": {
+        "total_results": 10,
+        "high_relevance": 0,
+        "precision_at_k": 0.0,
+        "avg_similarity": 0.5758480073928833,
+        "top_similarity": 0.5860000000000001,
+        "highly_relevant": [],
+        "moderately_relevant": [],
+        "low_relevance": [
+          {
+            "rank": 1,
+            "file": "langgraph/langgraph/index/index.md",
+            "similarity": 0.5860000000000001,
+            "relevance": 3.0940000000000003
+          },
+          {
+            "rank": 2,
+            "file": "langgraph/langgraph/agents/evals/index.md",
+            "similarity": 0.5860000000000001,
+            "relevance": 3.0940000000000003
+          }
+        ]
+      },
+      "langchain": {
+        "total_results": 10,
+        "high_relevance": 0,
+        "precision_at_k": 0.0,
+        "avg_similarity": 0.613114526357317,
+        "top_similarity": 0.7050339502614477,
+        "highly_relevant": [],
+        "moderately_relevant": [
+          {
+            "rank": 1,
+            "file": "langchain/oss/python/langchain/agents.md",
+            "similarity": 0.7050339502614477,
+            "relevance": 4.32013580104579
+          },
+          {
+            "rank": 2,
+            "file": "langchain/oss/javascript/migrate/langchain-v1.md",
+            "similarity": 0.675307937167261,
+            "relevance": 4.201231748669044
+          }
+        ],
+        "low_relevance": [
+          {
+            "rank": 3,
+            "file": "langchain/oss/javascript/langchain/agents.md",
+            "similarity": 0.6011602878570557,
+            "relevance": 3.9046411514282227
+          },
+          {
+            "rank": 4,
+            "file": "langchain/oss/javascript/deepagents/overview.md",
+            "similarity": 0.5984615384615385,
+            "relevance": 3.893846153846154
+          }
+        ]
+      }
+    },
+    "What LLM models are supported in LangChain?": {
+      "langgraph": {
+        "total_results": 10,
+        "high_relevance": 0,
+        "precision_at_k": 0.0,
+        "avg_similarity": 0.5738363636363637,
+        "top_similarity": 0.5860000000000001,
+        "highly_relevant": [],
+        "moderately_relevant": [
+          {
+            "rank": 8,
+            "file": "langgraph/langgraph/agents/streaming/index.md",
+            "similarity": 0.5454545454545454,
+            "relevance": 4.431818181818182
+          },
+          {
+            "rank": 9,
+            "file": "langgraph/langgraph/cloud/concepts/streaming/index.md",
+            "similarity": 0.5454545454545454,
+            "relevance": 4.431818181818182
+          },
+          {
+            "rank": 10,
+            "file": "langgraph/langgraph/concepts/streaming/index.md",
+            "similarity": 0.5454545454545454,
+            "relevance": 4.431818181818182
+          }
+        ],
+        "low_relevance": [
+          {
+            "rank": 1,
+            "file": "langgraph/langgraph/index/index.md",
+            "similarity": 0.5860000000000001,
+            "relevance": 3.0940000000000003
+          },
+          {
+            "rank": 2,
+            "file": "langgraph/langgraph/agents/evals/index.md",
+            "similarity": 0.5860000000000001,
+            "relevance": 3.0940000000000003
+          }
+        ]
+      },
+      "langchain": {
+        "total_results": 10,
+        "high_relevance": 0,
+        "precision_at_k": 0.0,
+        "avg_similarity": 0.5726325957507721,
+        "top_similarity": 0.5843750000000001,
+        "highly_relevant": [],
+        "moderately_relevant": [
+          {
+            "rank": 1,
+            "file": "langchain/langsmith/evaluate-chatbot-tutorial.md",
+            "similarity": 0.5843750000000001,
+            "relevance": 4.5875
+          },
+          {
+            "rank": 3,
+            "file": "langchain/langchain-ai/langchainjs/master/README.md",
+            "similarity": 0.5725,
+            "relevance": 4.54
+          }
+        ],
+        "low_relevance": [
+          {
+            "rank": 2,
+            "file": "langchain/oss/python/integrations/chat/index.md",
+            "similarity": 0.5809134081006051,
+            "relevance": 3.0736536324024204
+          },
+          {
+            "rank": 4,
+            "file": "langchain/oss/javascript/langchain/models.md",
+            "similarity": 0.5704347826086957,
+            "relevance": 3.781739130434783
+          }
+        ]
+      }
+    },
+    "How do I build a multi-agent system with LangChain?": {
+      "langgraph": {
+        "total_results": 10,
+        "high_relevance": 0,
+        "precision_at_k": 0.0,
+        "avg_similarity": 0.6014740165196932,
+        "top_similarity": 0.6207692307692307,
+        "highly_relevant": [],
+        "moderately_relevant": [
+          {
+            "rank": 8,
+            "file": "langgraph/langgraph/agents/multi-agent/index.md",
+            "similarity": 0.5706171989440918,
+            "relevance": 4.532468795776367
+          }
+        ],
+        "low_relevance": [
+          {
+            "rank": 1,
+            "file": "langgraph/langgraph/index/index.md",
+            "similarity": 0.6207692307692307,
+            "relevance": 3.983076923076923
+          },
+          {
+            "rank": 2,
+            "file": "langgraph/langgraph/agents/evals/index.md",
+            "similarity": 0.6207692307692307,
+            "relevance": 3.983076923076923
+          }
+        ]
+      },
+      "langchain": {
+        "total_results": 10,
+        "high_relevance": 0,
+        "precision_at_k": 0.0,
+        "avg_similarity": 0.5789228312880865,
+        "top_similarity": 0.6429290869019249,
+        "highly_relevant": [],
+        "moderately_relevant": [
+          {
+            "rank": 1,
+            "file": "langchain/oss/python/langchain/multi-agent/subagents-personal-assistant.md",
+            "similarity": 0.6429290869019249,
+            "relevance": 4.071716347607699
+          },
+          {
+            "rank": 4,
+            "file": "langchain/oss/javascript/langgraph/use-subgraphs.md",
+            "similarity": 0.5725,
+            "relevance": 4.54
+          },
+          {
+            "rank": 5,
+            "file": "langchain/langchain-ai/langchainjs/master/README.md",
+            "similarity": 0.5681818181818181,
+            "relevance": 4.5227272727272725
+          }
+        ],
+        "low_relevance": [
+          {
+            "rank": 2,
+            "file": "langchain/oss/python/langchain/multi-agent/subagents.md",
+            "similarity": 0.6027586206896551,
+            "relevance": 3.9110344827586205
+          },
+          {
+            "rank": 3,
+            "file": "langchain/oss/python/langchain/quickstart.md",
+            "similarity": 0.5968,
+            "relevance": 3.8872
+          }
+        ]
+      }
+    }
+  }
+}
