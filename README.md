@@ -7,6 +7,9 @@ An AI-powered assistant that helps developers work with LangGraph and LangChain 
 - **Dual Operating Modes**: Offline (local documentation) and Online (real-time web search)
 - **Advanced RAG**: Semantic search with query expansion, hybrid search, metadata boosting, and reranking
 - **Intelligent Routing**: LLM-powered decision making for RAG vs web search
+- **Strict Document Grading**: Documents must actually answer the question, not just mention the topic
+- **Improved Generation**: Generates helpful answers even when documents don't fully answer
+- **Smart Fallback**: Automatic fallback to ungraded results when graded results don't answer
 - **Hallucination Detection**: Automatic validation and retry mechanism
 - **Incremental Updates**: Automated watchdog system for keeping documentation fresh
 - **Streamlit GUI**: User-friendly web interface
@@ -116,6 +119,60 @@ For complete node specifications, see [`documentation/graph_design.md`](document
 
 ---
 
+## Streamlit GUI
+
+The application features a user-friendly Streamlit web interface that makes it easy to interact with the LangGraph Helper Agent.
+
+![Streamlit GUI](https://raw.githubusercontent.com/Kochurovskyi/dual-rag/main/gui.png)
+
+**Quick Start:**
+```bash
+streamlit run app.py
+```
+
+The application will open in your browser at `http://localhost:8501`.
+
+**GUI Interface:**
+
+The Streamlit GUI provides an intuitive interface with two main sections:
+
+**Left Sidebar - Configuration Panel:**
+- **Mode Selection**: Radio buttons to switch between "Offline" and "Online" modes
+- **Current Status Display**:
+  - Current Mode (OFFLINE/ONLINE)
+  - Vector Store (ChromaDB/PostgreSQL)
+  - Web Search status (Enabled/Disabled)
+- **API Keys**: Validation status with green checkmarks when valid
+  - Google API Key validation
+  - Tavily API Key validation (online mode)
+- **Example Questions**: Pre-defined questions for quick testing:
+  - "What is LangGraph?"
+  - "How do I add persistence to a LangGraph agent?"
+  - "What's the difference between StateGraph and MessageGraph?"
+  - "How to handle errors in LangChain?"
+  - And more...
+
+**Main Panel - Query and Results:**
+- **Query Input**: Text field to enter your question
+- **Run Button**: Execute the query (rocket icon)
+- **Answer Display**:
+  - Formatted answer with citations (Document 1, Document 2, etc.)
+  - Code examples with syntax highlighting
+  - Bullet points and structured formatting
+  - Source attribution (e.g., "Source: RAG (ChromaDB)")
+- **Expandable Sections**:
+  - **View Source URLs/Paths**: Click to see document sources
+  - **Statistics**: View retrieval and generation statistics
+
+**GUI Usage Flow:**
+1. Select mode (Offline/Online) in the sidebar
+2. Choose an example question or enter your own
+3. Click "Run" button
+4. View answer with citations and code examples
+5. Expand sections to see sources and statistics
+
+---
+
 ## Operating Modes
 
 The agent supports two distinct modes controlled via the `AGENT_MODE` environment variable:
@@ -171,8 +228,9 @@ For detailed mode behavior, fallback mechanisms, and routing logic, see [`docume
 - No updates needed
 - **Domain Filtering**: Restricts to official documentation domains (langchain-ai.github.io, docs.langchain.com, python.langchain.com, github.com/langchain-ai)
 - **Advanced Search**: Uses `search_depth="advanced"` for better content extraction
-- **Query Enhancement**: Automatically adds "LangGraph" context to queries when needed
+- **Query Enhancement**: Intelligently adds "LangGraph" context only for specific technical questions (not for general topics like "best practices", "how to", etc.)
 - **Smart Fallback**: Uses results even if graded as irrelevant (ensures answers are generated)
+- **Strict Grading**: Documents must actually answer the question, not just mention the topic
 
 For comprehensive data freshness documentation, update procedures, and watchdog system details, see [`documentation/DATA_UPDATE_STRATEGY.md`](documentation/DATA_UPDATE_STRATEGY.md).
 
@@ -230,7 +288,7 @@ Create a `.env` file in the project root:
 GOOGLE_API_KEY=your_google_api_key_here
 
 # Optional: For online mode
-AGENT_MODE=online  # initial state but fille free to set up "offline"
+AGENT_MODE=online  # initial state but feel free to set up "offline"
 TAVILY_API_KEY=your_tavily_api_key_here  # Required for online mode web search
 
 # Optional: PostgreSQL configuration (for online mode)
@@ -239,7 +297,7 @@ POSTGRES_PORT=5432
 POSTGRES_DB=documentation_search
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=postgres
-POSTGRES_VECTOR_TABLE=langchain_document_vectors
+POSTGRES_VECTOR_TABLE=document_vectors
 ```
 
 **Get API Keys:**
@@ -292,46 +350,7 @@ This will:
 streamlit run app.py
 ```
 
-The application will open in your browser at `http://localhost:8501`.
-
-**GUI Interface:**
-
-The Streamlit GUI provides an intuitive interface with two main sections:
-
-**Left Sidebar - Configuration Panel:**
-- **Mode Selection**: Radio buttons to switch between "Offline" and "Online" modes
-- **Current Status Display**:
-  - Current Mode (OFFLINE/ONLINE)
-  - Vector Store (ChromaDB/PostgreSQL)
-  - Web Search status (Enabled/Disabled)
-- **API Keys**: Validation status with green checkmarks when valid
-  - Google API Key validation
-  - Tavily API Key validation (online mode)
-- **Example Questions**: Pre-defined questions for quick testing:
-  - "What is LangGraph?"
-  - "How do I add persistence to a LangGraph agent?"
-  - "What's the difference between StateGraph and MessageGraph?"
-  - "How to handle errors in LangChain?"
-  - And more...
-
-**Main Panel - Query and Results:**
-- **Query Input**: Text field to enter your question
-- **Run Button**: Execute the query (rocket icon)
-- **Answer Display**:
-  - Formatted answer with citations (Document 1, Document 2, etc.)
-  - Code examples with syntax highlighting
-  - Bullet points and structured formatting
-  - Source attribution (e.g., "Source: RAG (ChromaDB)")
-- **Expandable Sections**:
-  - **View Source URLs/Paths**: Click to see document sources
-  - **Statistics**: View retrieval and generation statistics
-
-**GUI Usage Flow:**
-1. Select mode (Offline/Online) in the sidebar
-2. Choose an example question or enter your own
-3. Click "Run" button
-4. View answer with citations and code examples
-5. Expand sections to see sources and statistics
+See the [Streamlit GUI](#streamlit-gui) section above for detailed interface information.
 
 **CLI (Alternative):**
 ```bash
@@ -427,7 +446,7 @@ Sources:
 Metadata:
   Generation source: rag
   Generation length: 847 characters
-  Documents retrieved: 8
+  Documents retrieved: 5
   Documents graded: 3
   Web search performed: False
   Is grounded: True
@@ -578,12 +597,13 @@ For more details on LLM and embedding configuration, see [`documentation/graph_d
 - **Search Parameters**:
   - `search_depth="advanced"` for better content extraction
   - `max_results=5` for more comprehensive results
-  - Query enhancement: Automatically adds "LangGraph" context if not present
+  - Query enhancement: Intelligently adds "LangGraph" context only for specific technical questions (not for general topics)
 
 **Usage:**
 - Used in `web_search` node for real-time information retrieval
-- Results are graded for relevance using LLM
-- **Smart Fallback**: If all results are filtered as irrelevant, system uses them anyway (less strict filtering)
+- Results are graded for relevance using LLM with strict criteria (must actually answer the question)
+- **Smart Fallback**: If graded results don't answer the question, system falls back to ungraded results
+- **Improved Generation**: Generates helpful answers even when documents don't fully answer, explaining what they do contain
 - Fallback mechanism when vector store has no relevant documents
 - Pure LLM fallback if no web search results available
 
@@ -776,7 +796,9 @@ streamlit run app.py
 - Web search enabled (Tavily API with domain filtering)
 - Uses PostgreSQL for vector storage
 - Falls back to web search when no relevant documents
-- Smart fallback: Uses web search results even if graded as irrelevant (less strict filtering)
+- **Strict Document Grading**: Documents must actually answer the question, not just mention the topic
+- **Improved Generation**: Generates helpful answers even when documents don't fully answer
+- **Smart Fallback**: If graded web search results don't answer, falls back to ungraded results
 - Pure LLM fallback if no web search results available
 
 For detailed mode behavior and routing logic, see [`documentation/graph_design.md`](documentation/graph_design.md#mode-specific-behavior).
@@ -888,6 +910,7 @@ The agent can handle various types of questions about LangGraph and LangChain:
 - "Show me how to implement human-in-the-loop with LangGraph"
 - "How do I handle errors and retries in LangGraph nodes?"
 - "What are best practices for state management in LangGraph?"
+- "What are the best practices for RAG?" (online mode - uses web search)
 - "How do I use checkpointers in LangGraph?"
 - "What are the latest LangGraph features?" (online mode)
 - "How do I build a multi-agent system with LangChain?"
@@ -963,16 +986,17 @@ The application can be deployed as a Docker container to AWS Elastic Beanstalk o
 
 ### Build and Push Docker Image
 
+**Prerequisites:**
+- Docker Desktop must be running
+- Logged in to Docker Hub: `docker login`
+- Run commands from the project root directory
+
 ```bash
 # Build image
 docker build -t kochurovskyi/dual-rag:latest .
 
 # Push to Docker Hub
 docker push kochurovskyi/dual-rag:latest
-
-# Or use helper script
-./build_and_push.sh  # Linux/Mac
-build_and_push.bat   # Windows
 ```
 
 ### AWS Elastic Beanstalk Deployment
@@ -989,7 +1013,7 @@ build_and_push.bat   # Windows
 
 **Docker Image**: `kochurovskyi/dual-rag:latest`
 
-For detailed deployment instructions, see [`DEPLOYMENT.md`](DEPLOYMENT.md).
+For deployment, configure environment variables in AWS Elastic Beanstalk or your Docker platform.
 
 ---
 
