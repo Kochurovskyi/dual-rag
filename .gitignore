@@ -48,7 +48,9 @@ ENV/
 .DS_Store
 
 # ChromaDB / Index data
-index/
+# Note: index/ is tracked via Git LFS for pre-indexed data
+# Uncomment below to ignore index/ locally (but it's pushed to repo via LFS)
+# index/
 *.sqlite3
 *.db
 
