@@ -25,35 +25,25 @@ def create_retrieval_grader_chain():
     
     prompt = ChatPromptTemplate.from_messages([
         ("system", """You are a grader assessing relevance of retrieved documents to a user question.
-        
-Given a question and a document, determine if the document is relevant to answering the question.
-
-A document is relevant ONLY if:
-- It directly answers the specific question asked
-- It provides information that directly addresses what the user is asking for
-- It contains actionable information or specific details that answer the question
-
-A document is NOT relevant if:
-- It only mentions the topic but doesn't answer the question
-- It discusses related concepts but doesn't address the specific question
-- It provides general information but not what was specifically asked
-
-Be VERY strict in your grading. Only mark as 'yes' if the document actually answers the question, not just if it mentions the topic.
-
-Respond with:
-- 'yes' if the document directly answers the question
-- 'no' if the document does not answer the question (even if it mentions the topic)"""),
-        ("human", """Question: {question}
-
-Document: {document}
-
-Does this document directly answer the question? Respond with 'yes' or 'no'.""")
-    ])
-    
+            Given a question and a document, determine if the document is relevant to answering the question.
+            A document is relevant ONLY if:
+            - It directly answers the specific question asked
+            - It provides information that directly addresses what the user is asking for
+            - It contains actionable information or specific details that answer the question
+            A document is NOT relevant if:
+            - It only mentions the topic but doesn't answer the question
+            - It discusses related concepts but doesn't address the specific question
+            - It provides general information but not what was specifically asked
+            Be VERY strict in your grading. Only mark as 'yes' if the document actually answers the question, not just if it mentions the topic.
+            Respond with:
+            - 'yes' if the document directly answers the question
+            - 'no' if the document does not answer the question (even if it mentions the topic)"""),
+                    ("human", """Question: {question}
+            Document: {document}
+            Does this document directly answer the question? Respond with 'yes' or 'no'.""")
+                ])
     chain = prompt | structured_llm
-    
     return chain
-
 
 # Create the chain instance
 grade_document_chain = create_retrieval_grader_chain()

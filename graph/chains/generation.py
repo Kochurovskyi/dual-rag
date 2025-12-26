@@ -2,44 +2,34 @@
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.output_parsers import StrOutputParser
-
 from config import LLM_MODEL
 from graph.logging_config import logger
 
 
 def create_generation_chain():
     """Create answer generation chain."""
-    llm = ChatGoogleGenerativeAI(
-        model=LLM_MODEL,
-        temperature=0.7,  # Higher temperature for more creative answers
-    )
-    
+    # Higher temperature for more creative answers
+    llm = ChatGoogleGenerativeAI(model=LLM_MODEL, temperature=0.7)
     prompt = ChatPromptTemplate.from_messages([
         ("system", """You are an expert assistant helping users understand technical documentation.
         
-Use the provided context documents to answer the user's question. 
-- Provide a clear, concise answer based on the documents
-- If the documents contain relevant information, extract and present it clearly
-- Include relevant code examples or explanations from the documents
-- Cite which document(s) you used for your answer
-- If the documents don't directly answer the question but contain related information, explain what they DO contain and how it relates
-
-IMPORTANT: If the documents don't contain enough information to answer the question, be helpful:
-- Explain what information the documents DO contain
-- Suggest what additional information would be needed
-- Don't just say "the documents don't contain information" - be constructive
-
-Format your response clearly and be helpful."""),
-        ("human", """Context Documents:
-{context}
-
-Question: {question}
-
-Answer the question based on the context documents above. If the documents don't directly answer the question, explain what they do contain and how it relates to the question.""")
-    ])
+        Use the provided context documents to answer the user's question. 
+        - Provide a clear, concise answer based on the documents
+        - If the documents contain relevant information, extract and present it clearly
+        - Include relevant code examples or explanations from the documents
+        - Cite which document(s) you used for your answer
+        - If the documents don't directly answer the question but contain related information, explain what they DO contain and how it relates
+        IMPORTANT: If the documents don't contain enough information to answer the question, be helpful:
+        - Explain what information the documents DO contain
+        - Suggest what additional information would be needed
+        - Don't just say "the documents don't contain information" - be constructive
+        Format your response clearly and be helpful."""),
+                ("human", """Context Documents:{context}
+        Question: {question}
+        Answer the question based on the context documents above. If the documents don't directly answer the question, explain what they do contain and how it relates to the question.""")
+            ])
     
     chain = prompt | llm | StrOutputParser()
-    
     return chain
 
 
@@ -73,11 +63,11 @@ def generate_pure_llm_answer(question: str) -> str:
     prompt = ChatPromptTemplate.from_messages([
         ("system", """You are a helpful assistant. Provide a brief, summarized answer in approximately 100 words or less.
         
-Start your answer with: "There is no answer in knowledge base but..."
-Then provide a concise, helpful response based on your general knowledge.
-Keep it brief and to the point."""),
-        ("human", "Question: {question}\n\nProvide a brief answer (approximately 100 words).")
-    ])
+        Start your answer with: "There is no answer in knowledge base but..."
+        Then provide a concise, helpful response based on your general knowledge.
+        Keep it brief and to the point."""),
+                ("human", "Question: {question}\n\nProvide a brief answer (approximately 100 words).")
+            ])
     
     chain = prompt | llm | StrOutputParser()
     
@@ -141,16 +131,13 @@ if __name__ == "__main__":
     sys.path.insert(0, str(Path(__file__).parent.parent.parent))
     from graph.test_mode_helper import set_mode, get_current_mode
     from pprint import pprint
-    
     parser = argparse.ArgumentParser(description="Test Generation Chain")
     parser.add_argument("--mode", choices=["offline", "online"], 
                        default=None, help="Test mode (default: current AGENT_MODE)")
     parser.add_argument("--test-pure-llm", action="store_true",
                        help="Test pure LLM fallback (no documents)")
     args = parser.parse_args()
-    
     mode = args.mode or get_current_mode()
-    
     with set_mode(mode):
         try:
             if args.test_pure_llm:

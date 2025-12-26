@@ -139,9 +139,7 @@ if __name__ == "__main__":
     parser.add_argument("--mode", choices=["offline", "online"], 
                        default=None, help="Test mode (default: current AGENT_MODE)")
     args = parser.parse_args()
-    
     mode = args.mode or get_current_mode()
-    
     with set_mode(mode):
         try:
             # Re-import config to get updated values
@@ -181,7 +179,6 @@ if __name__ == "__main__":
             print(f"\nWeb search performed: {result['metadata'].get('web_search_performed', False)}")
             print(f"Results count: {len(result['web_search_results'])}")
             print(f"Reason: {result['metadata'].get('web_search_reason', 'N/A')}")
-            
             if result['web_search_results']:
                 print("\nFirst result preview:")
                 print("-" * 30)
@@ -190,7 +187,6 @@ if __name__ == "__main__":
                 print(f"Content: {result['web_search_results'][0].page_content[:200]}...")
             
             print("\nTest completed!")
-            
         except Exception as e:
             print(f"Test failed: {e}")
             import traceback

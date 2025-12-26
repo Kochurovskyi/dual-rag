@@ -25,27 +25,20 @@ def create_hallucination_grader_chain():
     
     prompt = ChatPromptTemplate.from_messages([
         ("system", """You are a grader assessing whether an answer is grounded in the provided documents.
-        
-Given a question, an answer, and source documents, determine if the answer is grounded in the documents.
-An answer is grounded if it can be supported by information in the source documents.
-
-Respond with:
-- 'yes' if the answer is grounded in the documents
-- 'no' if the answer contains information not found in the documents (hallucinated)
-
-Be strict in your assessment. Only mark as grounded if the answer can be directly supported by the documents."""),
-        ("human", """Question: {question}
-
-Answer: {answer}
-
-Source Documents:
-{documents}
-
-Is the answer grounded in the source documents? Respond with 'yes' or 'no'.""")
-    ])
+            Given a question, an answer, and source documents, determine if the answer is grounded in the documents.
+            An answer is grounded if it can be supported by information in the source documents.
+            Respond with:
+            - 'yes' if the answer is grounded in the documents
+            - 'no' if the answer contains information not found in the documents (hallucinated)
+            Be strict in your assessment. Only mark as grounded if the answer can be directly supported by the documents."""),
+                    ("human", """Question: {question}
+            Answer: {answer}
+            Source Documents:
+            {documents}
+            Is the answer grounded in the source documents? Respond with 'yes' or 'no'.""")
+                ])
     
     chain = prompt | structured_llm
-    
     return chain
 
 
@@ -56,12 +49,10 @@ check_hallucination_chain = create_hallucination_grader_chain()
 def check_hallucination(question: str, answer: str, documents: list) -> dict:
     """
     Check if an answer is grounded in source documents.
-    
     Args:
         question: User's question
         answer: Generated answer
         documents: List of source document contents
-        
     Returns:
         dict with 'binary_score' ('yes' or 'no') and 'reasoning'
     """
@@ -73,25 +64,20 @@ def check_hallucination(question: str, answer: str, documents: list) -> dict:
             "binary_score": "no",
             "reasoning": "No documents provided for grounding check"
         }
-    
     # Format documents for prompt
     docs_text = "\n\n---\n\n".join([
         f"Document {i+1}:\n{doc}" for i, doc in enumerate(documents)
     ])
-    
     try:
         result = check_hallucination_chain.invoke({
             "question": question,
             "answer": answer,
             "documents": docs_text
         })
-        
         score = result.binary_score
         reasoning = result.reasoning
-        
         is_grounded = score.lower() == "yes"
         logger.info(f"Hallucination check: {'Grounded' if is_grounded else 'Hallucinated'} - {reasoning[:100]}...")
-        
         return {
             "binary_score": score,
             "reasoning": reasoning
@@ -166,11 +152,9 @@ def main(mode=None):
 
 if __name__ == '__main__':
     import argparse
-    
     parser = argparse.ArgumentParser(description="Test Hallucination Grader")
     parser.add_argument("--mode", choices=["offline", "online"], 
                        default=None, help="Test mode (default: current AGENT_MODE)")
     args = parser.parse_args()
-    
     main(mode=args.mode)
 

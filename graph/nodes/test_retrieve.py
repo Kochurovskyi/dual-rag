@@ -15,12 +15,10 @@ if __name__ == "__main__":
     """Test the retrieve_documents function when run directly"""
     import argparse
     from graph.test_mode_helper import set_mode, get_current_mode
-    
     parser = argparse.ArgumentParser(description="Test Retrieve Node")
     parser.add_argument("--mode", choices=["offline", "online"], 
                        default=None, help="Test mode (default: current AGENT_MODE)")
     args = parser.parse_args()
-    
     mode = args.mode or get_current_mode()
     
     with set_mode(mode):
@@ -54,7 +52,6 @@ if __name__ == "__main__":
             
             print(f"\nRetrieved {len(result['documents'])} documents")
             print(f"Document scores: {result.get('document_scores', [])[:5]}")  # Show first 5 scores
-            
             if result['documents']:
                 print("\nFirst document preview:")
                 print("-" * 30)
@@ -63,7 +60,6 @@ if __name__ == "__main__":
                 print(f"Score: {result['document_scores'][0] if result['document_scores'] else 'N/A'}")
             
             print("\nTest completed successfully!")
-            
         except Exception as e:
             print(f"Test failed: {e}")
             import traceback

@@ -27,24 +27,24 @@ def create_router_chain():
     prompt = ChatPromptTemplate.from_messages([
         ("system", """You are an expert at routing user questions to the right data source.
         
-Given a question, determine if it should be answered using:
-1. RAG (vector store) - ONLY for questions about LangGraph, LangChain, or LangSmith documentation, APIs, code examples, or technical concepts from the documentation
-2. Web search - for general knowledge, current events, recent news, real-time information, or any topic NOT in the documentation
+        Given a question, determine if it should be answered using:
+        1. RAG (vector store) - ONLY for questions about LangGraph, LangChain, or LangSmith documentation, APIs, code examples, or technical concepts from the documentation
+        2. Web search - for general knowledge, current events, recent news, real-time information, or any topic NOT in the documentation
 
-IMPORTANT: If the question asks about:
-- Current events, news, or recent developments
-- Real-time information (weather, stock prices, etc.)
-- General knowledge not specific to LangGraph/LangChain/LangSmith
-- Questions that might need up-to-date information beyond documentation
-Then route to web_search.
+        IMPORTANT: If the question asks about:
+        - Current events, news, or recent developments
+        - Real-time information (weather, stock prices, etc.)
+        - General knowledge not specific to LangGraph/LangChain/LangSmith
+        - Questions that might need up-to-date information beyond documentation
+        Then route to web_search.
 
-Only use RAG if the question is clearly about LangGraph, LangChain, or LangSmith documentation or technical concepts.
+        Only use RAG if the question is clearly about LangGraph, LangChain, or LangSmith documentation or technical concepts.
 
-For offline mode, always route to RAG since web search is disabled.
+        For offline mode, always route to RAG since web search is disabled.
 
-Respond with your decision and reasoning."""),
-        ("human", "Question: {question}")
-    ])
+        Respond with your decision and reasoning."""),
+                ("human", "Question: {question}")
+            ])
     
     chain = prompt | structured_llm
     
@@ -58,10 +58,8 @@ route_question_chain = create_router_chain()
 def route_question(question: str) -> dict:
     """
     Route a question to determine if RAG or web search should be used.
-    
     Args:
         question: User's question
-        
     Returns:
         dict with 'decision' ('rag' or 'web_search') and 'reasoning'
     """

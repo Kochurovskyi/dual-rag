@@ -13,7 +13,6 @@ def grade_web_search_results(state: GraphState) -> GraphState:
     logger.info("[MODE] Checking web search results relevance to question")
     question = state["question"]
     web_search_results = state.get("web_search_results", [])
-    
     if not web_search_results:
         logger.warning("[MODE] No web search results to grade")
         state["graded_web_search_results"] = []
@@ -25,7 +24,6 @@ def grade_web_search_results(state: GraphState) -> GraphState:
         return state
     
     logger.info(f"[MODE] Grading {len(web_search_results)} web search results")
-    
     # Grade each web search result
     graded_results = []
     grading_scores = []
@@ -36,12 +34,9 @@ def grade_web_search_results(state: GraphState) -> GraphState:
         logger.info(f"[MODE] Grading web search result {i+1}/{len(web_search_results)}: {title}...")
         logger.debug(f"[DEBUG] URL: {url}")
         logger.debug(f"[DEBUG] Content preview: {doc.page_content[:200]}...")
-        
         # Grade document for relevance
         grade_result = grade_document(question, doc.page_content)
-        
         logger.info(f"[DEBUG] Grade result for result {i+1}: binary_score={grade_result['binary_score']}, reasoning={grade_result.get('reasoning', '')[:150]}...")
-        
         # If relevant (binary_score == 'yes'), keep it
         if grade_result["binary_score"].lower() == "yes":
             graded_results.append(doc)
@@ -81,9 +76,7 @@ if __name__ == "__main__":
     parser.add_argument("--mode", choices=["offline", "online"], 
                        default=None, help="Test mode (default: current AGENT_MODE)")
     args = parser.parse_args()
-    
     mode = args.mode or get_current_mode()
-    
     with set_mode(mode):
         try:
             # Re-import config to get updated values
@@ -148,12 +141,10 @@ if __name__ == "__main__":
             
             # Grade web search results
             result = grade_web_search_results(state)
-            
             print(f"\nGrading Results:")
             print(f"  Total results: {result['metadata']['web_search_total_count']}")
             print(f"  Relevant: {result['metadata']['web_search_graded_count']}")
             print(f"  Filtered: {result['metadata']['web_search_filtered_count']}")
-            
             if result['graded_web_search_results']:
                 print("\nRelevant Results:")
                 for i, doc in enumerate(result['graded_web_search_results'], 1):
@@ -161,8 +152,7 @@ if __name__ == "__main__":
                     print(f"     URL: {doc.metadata.get('url', 'Unknown')}")
                     print(f"     Score: {result['web_search_grading_scores'][i-1]:.2f}")
             else:
-                print("\nNo relevant results found.")
-            
+                print("\nNo relevant results found.")   
             print("\nTest completed!")
             
         except Exception as e:
