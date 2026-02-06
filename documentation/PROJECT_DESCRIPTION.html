@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered First-Line Support Agent - Project Description</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }what the project consists of, including its architecture and tech stack.
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: #f8f9fa;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        h3 {
+            color: #764ba2;
+            font-size: 1.5em;
+            margin-top: 35px;
+            margin-bottom: 15px;
+        }
+        
+        h4 {
+            color: #555;
+            font-size: 1.2em;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+        
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+        
+        strong {
+            color: #667eea;
+            font-weight: 600;
+        }
+        
+        .diagram-container {
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 30px 0;
+            overflow-x: auto;
+        }
+        
+        .diagram-container .mermaid {
+            display: flex;
+            justify-content: center;
+            background: white;
+            padding: 20px;
+            border-radius: 4px;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        
+        .metric-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .metric {
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .metric-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .metric-label {
+            color: #666;
+            font-size: 1em;
+        }
+        
+        hr {
+            border: none;
+            border-top: 2px solid #e0e0e0;
+            margin: 40px 0;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:hover {
+            background: #f5f5f5;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI-Powered First-Line Support Agent</h1>
+            <p>Project Description</p>
+        </header>
+        
+        <div class="content">
+            <section class="section">
+                <h2>Executive Summary</h2>
+                <p>The AI-Powered First-Line Support Agent is an intelligent customer support automation system designed to replace traditional first-line support for a microsite building platform. The solution leverages advanced retrieval-augmented generation (RAG) technology to automatically answer customer questions by searching through the platform's comprehensive knowledge base, reducing support ticket volume by <strong>60-80%</strong> while maintaining response accuracy and customer satisfaction.</p>
+            </section>
+
+            <hr>
+
+            <section class="section">
+                <h2>The Business Problem</h2>
+                
+                <h3>Challenge Overview</h3>
+                <p>The microsite building platform faced critical support scalability challenges that threatened business growth and customer satisfaction:</p>
+                
+                <h4>Excessive Support Ticket Volume</h4>
+                <ul>
+                    <li><strong>60-70% of inbound support requests</strong> consisted of repetitive, low-complexity questions that could be answered from existing documentation</li>
+                    <li>Common inquiries included: "How do I add a background image?", "How do I set up password protection?", "How do I customize my site's branding?"</li>
+                    <li>Support team was overwhelmed with routine questions, limiting capacity for complex, high-value customer issues</li>
+                </ul>
+                
+                <h4>Rising Support Costs</h4>
+                <ul>
+                    <li>Traditional live chat support costs average <strong>$7-8 per session</strong> with agent salaries ranging from $15,000-$20,000 annually</li>
+                    <li>Support team required continuous scaling to handle growing customer base</li>
+                    <li>Response times were increasing as ticket queues grew, impacting customer satisfaction scores</li>
+                </ul>
+                
+                <h4>Knowledge Base Underutilization</h4>
+                <ul>
+                    <li>Platform maintained extensive documentation (over 280 articles covering site creation, design, security, analytics, and more)</li>
+                    <li>Customers struggled to find relevant information quickly, defaulting to support tickets instead</li>
+                    <li>Documentation updates required manual support team training, creating knowledge gaps</li>
+                </ul>
+                
+                <h4>Operational Inefficiencies</h4>
+                <ul>
+                    <li>Support agents spent significant time searching documentation to answer routine questions</li>
+                    <li>Inconsistent answers across team members due to varying familiarity with documentation</li>
+                    <li>New support team members required extensive training to become effective</li>
+                </ul>
+                
+                <h3>Business Impact</h3>
+                <div class="highlight-box">
+                    <p>These challenges created significant business risks:</p>
+                    <ul>
+                        <li><strong>Escalating Support Costs</strong>: Linear cost growth with customer base expansion, threatening profitability</li>
+                        <li><strong>Customer Satisfaction Decline</strong>: Increasing response times and inconsistent answers reduced customer trust</li>
+                        <li><strong>Limited Scalability</strong>: Support team capacity constraints prevented business growth</li>
+                        <li><strong>Resource Misallocation</strong>: Highly skilled support agents handling routine questions instead of complex issues</li>
+                        <li><strong>Competitive Disadvantage</strong>: Competitors offering faster, 24/7 automated support gained market advantage</li>
+                    </ul>
+                </div>
+                
+                <h3>Industry Context</h3>
+                <div class="metric-box">
+                    <div class="metric">
+                        <div class="metric-number">30-50%</div>
+                        <div class="metric-label">Ticket Deflection Rates</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-number">60-80%</div>
+                        <div class="metric-label">Automation Rates</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-number">30-90</div>
+                        <div class="metric-label">Days to ROI</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-number">90%</div>
+                        <div class="metric-label">Cost Savings</div>
+                    </div>
+                </div>
+            </section>
+
+            <hr>
+
+            <section class="section">
+                <h2>The Solution</h2>
+                
+                <h3>Solution Overview</h3>
+                <p>The AI-Powered First-Line Support Agent addresses these challenges through an intelligent, automated support system that reads and understands the platform's entire knowledge base, providing instant, accurate answers to customer questions with full source attribution and quality assurance.</p>
+                
+                <h3>How It Solves the Problem</h3>
+                
+                <h4>1. Intelligent Knowledge Base Search</h4>
+                <ul>
+                    <li><strong>Advanced RAG System</strong>: Uses semantic search with query expansion, hybrid search, metadata boosting, and reranking to find the most relevant documentation sections from over 280 support articles</li>
+                    <li><strong>Comprehensive Coverage</strong>: Indexes all knowledge base content including:
+                        <ul>
+                            <li>Site creation guides (109 articles)</li>
+                            <li>Design tutorials (68 articles)</li>
+                            <li>Security configuration (32 articles)</li>
+                            <li>Analytics setup (18 articles)</li>
+                            <li>File and media management (28 articles)</li>
+                            <li>Visitor information collection (16 articles)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Smart Routing</strong>: AI-powered decision making determines whether to search local knowledge base or escalate to human support based on question complexity</li>
+                </ul>
+                
+                <h4>2. Quality Assurance & Accuracy</h4>
+                <ul>
+                    <li><strong>Document Grading</strong>: Every retrieved document is evaluated by AI to ensure it actually answers the customer's question, not just mentions the topic</li>
+                    <li><strong>Hallucination Detection</strong>: Automatic validation ensures all answers are grounded in actual platform documentation</li>
+                    <li><strong>Retry Mechanism</strong>: If an answer is not properly grounded, the system automatically retries with improved context</li>
+                    <li><strong>Source Attribution</strong>: Every answer includes citations to original knowledge base articles for customer verification</li>
+                </ul>
+                
+                <h4>3. Operational Flexibility</h4>
+                <ul>
+                    <li><strong>Dual Operating Modes</strong>: 
+                        <ul>
+                            <li><strong>Offline Mode</strong>: Works with locally stored knowledge base (ideal for secure environments, cost optimization, or air-gapped systems)</li>
+                            <li><strong>Online Mode</strong>: Accesses real-time knowledge base updates and can search live documentation for latest features</li>
+                        </ul>
+                    </li>
+                    <li><strong>Scalable Architecture</strong>: Supports both lightweight local deployments and enterprise-scale production deployments</li>
+                    <li><strong>Automated Updates</strong>: Watchdog system automatically detects and indexes knowledge base changes, keeping responses current without manual intervention</li>
+                </ul>
+                
+                <h4>4. Customer Experience</h4>
+                <ul>
+                    <li><strong>Instant Responses</strong>: Sub-second answer generation provides immediate assistance</li>
+                    <li><strong>24/7 Availability</strong>: Automated support available around the clock without staffing costs</li>
+                    <li><strong>Consistent Answers</strong>: Standardized responses based on official documentation ensure accuracy</li>
+                    <li><strong>Multi-Channel Integration</strong>: Ready for integration with chat widgets, help desk systems, and customer portals</li>
+                </ul>
+            </section>
+
+            <hr>
+
+            <section class="section">
+                <h2>Architecture & Technical Stack</h2>
+                
+                <h3>System Architecture</h3>
+                <div class="diagram-container">
+                    <div class="mermaid">
+graph TB
+    subgraph "Customer Interface"
+        Chat[Chat Widget/Help Desk]
+        Portal[Customer Portal]
+        API[REST API]
+    end
+    
+    subgraph "AI Support Agent"
+        Router[Intelligent Router]
+        RAG[Knowledge Search Engine]
+        Grader[Quality Checker]
+        Generator[Answer Generator]
+        Validator[Accuracy Validator]
+    end
+    
+    subgraph "Knowledge Base"
+        KB[Platform Documentation<br/>280+ Articles]
+        VectorDB[(Searchable Database)]
+    end
+    
+    subgraph "AI Services"
+        LLM[AI Language Model]
+    end
+    
+    Chat --> API
+    Portal --> API
+    API --> Router
+    
+    Router -->|Routine Question| RAG
+    Router -->|Complex Issue| Escalate[Human Support]
+    
+    RAG --> VectorDB
+    VectorDB --> Grader
+    Grader --> Generator
+    Generator --> Validator
+    Validator -->|Accurate| API
+    Validator -->|Needs Review| Retry[Improve Answer]
+    Retry --> Generator
+    
+    Generator -.-> LLM
+    Grader -.-> LLM
+    Validator -.-> LLM
+    
+    KB --> VectorDB
+    
+    style Router fill:#667eea,color:#fff
+    style Generator fill:#f59e0b,color:#fff
+    style Validator fill:#ef4444,color:#fff
+    style VectorDB fill:#10b981,color:#fff
+                    </div>
+                </div>
+                
+                <h3>Customer Support Flow</h3>
+                <div class="diagram-container">
+                    <div class="mermaid">
+graph TD
+    Start([Customer Asks Question]) --> Route{Question Type?}
+    
+    Route -->|Simple Question| Search[Search Knowledge Base]
+    Route -->|Complex Issue| Human[Route to Human Support]
+    
+    Search --> Find{Found Answer?}
+    
+    Find -->|Yes| Check[Verify Answer Quality]
+    Find -->|No| Human
+    
+    Check -->|Accurate| Deliver([Deliver Answer to Customer])
+    Check -->|Needs Improvement| Improve[Enhance Answer]
+    
+    Improve --> Check
+    
+    Deliver --> End([Customer Satisfied])
+    Human --> End
+    
+    style Start fill:#667eea,color:#fff
+    style Deliver fill:#10b981,color:#fff
+    style Human fill:#f59e0b,color:#fff
+                    </div>
+                </div>
+                
+                <h3>Technology Stack</h3>
+                <div class="diagram-container">
+                    <div class="mermaid">
+graph LR
+    subgraph "Customer Access"
+        Web[Web Interface]
+        Mobile[Mobile Apps]
+        Chat[Chat Widgets]
+    end
+    
+    subgraph "Core System"
+        API[REST API]
+        AI[AI Engine]
+        DB[(Database)]
+    end
+    
+    subgraph "External Services"
+        Cloud[Cloud Platform]
+    end
+    
+    Web --> API
+    Mobile --> API
+    Chat --> API
+    
+    API --> AI
+    AI --> DB
+    AI --> Cloud
+    
+    style API fill:#667eea,color:#fff
+    style AI fill:#f59e0b,color:#fff
+    style DB fill:#10b981,color:#fff
+                    </div>
+                </div>
+                
+                <h3>Deployment Architecture</h3>
+                <div class="diagram-container">
+                    <div class="mermaid">
+graph TB
+    subgraph "Production Environment"
+        LB[Load Balancer]
+        
+        subgraph "Application Servers"
+            App1[Support Agent 1]
+            App2[Support Agent 2]
+            AppN[Support Agent N<br/>Auto-scaling]
+        end
+        
+        subgraph "Data Storage"
+            DB[(Database)]
+        end
+        
+        subgraph "External Services"
+            AI_API[AI Services]
+        end
+    end
+    
+    subgraph "Customer Access Points"
+        Chat[Chat Widget]
+        Portal[Customer Portal]
+        HelpDesk[Help Desk]
+    end
+    
+    Chat --> LB
+    Portal --> LB
+    HelpDesk --> LB
+    
+    LB --> App1
+    LB --> App2
+    LB --> AppN
+    
+    App1 --> DB
+    App2 --> DB
+    AppN --> DB
+    
+    App1 --> AI_API
+    App2 --> AI_API
+    AppN --> AI_API
+    
+    style LB fill:#667eea,color:#fff
+    style DB fill:#10b981,color:#fff
+    style AI_API fill:#f59e0b,color:#fff
+                    </div>
+                </div>
+                
+                <h3>Technical Components</h3>
+                <table>
+                    <tr>
+                        <th>Component</th>
+                        <th>Technology</th>
+                        <th>Purpose</th>
+                    </tr>
+                    <tr>
+                        <td>AI Engine</td>
+                        <td>Google Gemini 2.5 Flash</td>
+                        <td>Answer generation and quality checking</td>
+                    </tr>
+                    <tr>
+                        <td>Search Engine</td>
+                        <td>Vector Database</td>
+                        <td>Semantic search across knowledge base</td>
+                    </tr>
+                    <tr>
+                        <td>Data Storage</td>
+                        <td>PostgreSQL / ChromaDB</td>
+                        <td>Knowledge base indexing and storage</td>
+                    </tr>
+                    <tr>
+                        <td>API Layer</td>
+                        <td>REST API</td>
+                        <td>Integration with customer systems</td>
+                    </tr>
+                    <tr>
+                        <td>Deployment</td>
+                        <td>Docker / Cloud Platform</td>
+                        <td>Scalable, containerized deployment</td>
+                    </tr>
+                </table>
+            </section>
+
+            <hr>
+
+            <section class="section">
+                <h2>Key Features & Business Benefits</h2>
+                
+                <h3>Feature Set</h3>
+                <ul>
+                    <li><strong>Automated First-Line Support</strong>: Handles 60-80% of routine customer inquiries automatically</li>
+                    <li><strong>Advanced Quality Assurance</strong>: High accuracy answers with source verification</li>
+                    <li><strong>Automated Knowledge Base Updates</strong>: Always current responses without manual retraining</li>
+                    <li><strong>Production-Ready Scalability</strong>: Supports enterprise deployments, handling high query volumes</li>
+                    <li><strong>Cost-Effective Operation</strong>: Efficient API usage reduces operational costs</li>
+                    <li><strong>Multi-Channel Integration</strong>: Ready for integration with existing customer support infrastructure</li>
+                </ul>
+                
+                <h3>Business Value</h3>
+                <div class="metric-box">
+                    <div class="metric">
+                        <div class="metric-number">60-80%</div>
+                        <div class="metric-label">Ticket Reduction</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-number">&lt;1s</div>
+                        <div class="metric-label">Response Time</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-number">24/7</div>
+                        <div class="metric-label">Availability</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-number">$10K-$50K+</div>
+                        <div class="metric-label">Annual Savings</div>
+                    </div>
+                </div>
+                
+                <h4>Cost Reduction</h4>
+                <ul>
+                    <li><strong>Ticket Deflection</strong>: 60-80% reduction in routine support tickets</li>
+                    <li><strong>Support Team Efficiency</strong>: Agents focus on complex issues, improving productivity</li>
+                    <li><strong>Scalability</strong>: Support capacity grows with customer base without linear cost increases</li>
+                    <li><strong>ROI Timeline</strong>: Positive return on investment typically achieved within 30-90 days</li>
+                </ul>
+                
+                <h4>Customer Experience Improvements</h4>
+                <ul>
+                    <li><strong>Instant Responses</strong>: Sub-second answer generation provides immediate assistance</li>
+                    <li><strong>24/7 Availability</strong>: Automated support available around the clock</li>
+                    <li><strong>Consistency</strong>: Standardized answers based on official documentation</li>
+                    <li><strong>Self-Service</strong>: Customers find answers quickly without waiting</li>
+                </ul>
+            </section>
+
+            <hr>
+
+            <section class="section">
+                <h2>Project Scope & Deliverables</h2>
+                
+                <h3>Core Deliverables</h3>
+                <ol>
+                    <li><strong>AI-Powered Support Agent</strong>
+                        <ul>
+                            <li>Dual-mode operation (offline/online)</li>
+                            <li>Advanced RAG system with quality assurance</li>
+                            <li>Knowledge base integration and automated updates</li>
+                            <li>Escalation logic for complex queries</li>
+                        </ul>
+                    </li>
+                    <li><strong>Integration Interfaces</strong>
+                        <ul>
+                            <li>RESTful API for chat widget and help desk integration</li>
+                            <li>Web interface for internal testing and monitoring</li>
+                            <li>Command-line interface for administration</li>
+                        </ul>
+                    </li>
+                    <li><strong>Knowledge Base Management System</strong>
+                        <ul>
+                            <li>Automated documentation download and indexing</li>
+                            <li>Incremental update system for knowledge base changes</li>
+                            <li>Support for multiple documentation sources</li>
+                        </ul>
+                    </li>
+                    <li><strong>Production Deployment</strong>
+                        <ul>
+                            <li>Docker containerization for easy deployment</li>
+                            <li>PostgreSQL integration for scalable production</li>
+                            <li>Cloud platform deployment configuration</li>
+                            <li>Monitoring and logging infrastructure</li>
+                        </ul>
+                    </li>
+                </ol>
+            </section>
+
+            <hr>
+
+            <section class="section">
+                <h2>Success Metrics</h2>
+                
+                <h3>Quantitative Metrics</h3>
+                <ul>
+                    <li><strong>Ticket Deflection Rate</strong>: Target 60-80% of routine inquiries handled automatically</li>
+                    <li><strong>Response Time</strong>: Sub-second answer generation for automated responses</li>
+                    <li><strong>Accuracy Rate</strong>: >95% of answers properly grounded in knowledge base sources</li>
+                    <li><strong>Cost Reduction</strong>: Measurable reduction in support costs (target: 60-80% of routine support expenses)</li>
+                    <li><strong>Update Efficiency</strong>: 10x faster incremental knowledge base updates vs. full re-index</li>
+                    <li><strong>Customer Satisfaction</strong>: Maintained or improved scores with faster response times</li>
+                </ul>
+                
+                <h3>Qualitative Benefits</h3>
+                <ul>
+                    <li><strong>Customer Satisfaction</strong>: Faster, more consistent support responses</li>
+                    <li><strong>Support Team Satisfaction</strong>: Agents focus on meaningful, complex issues</li>
+                    <li><strong>Business Scalability</strong>: Support capacity grows without proportional cost increases</li>
+                    <li><strong>Competitive Advantage</strong>: 24/7 automated support differentiates from competitors</li>
+                    <li><strong>Knowledge Accessibility</strong>: Platform documentation becomes easily searchable</li>
+                </ul>
+            </section>
+
+        </div>
+    </div>
+    
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#667eea',
+                primaryTextColor: '#fff',
+                primaryBorderColor: '#764ba2',
+                lineColor: '#667eea',
+                secondaryColor: '#f59e0b',
+                tertiaryColor: '#10b981'
+            }
+        });
+    </script>
+</body>
+</html>
